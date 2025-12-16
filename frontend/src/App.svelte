@@ -1,9 +1,22 @@
 <script>
+  import Terminal from "./lib/Terminal.svelte";
+
   let count = $state(0);
+  let activeTab = $state("logs");
   let logLines = $state([
-    { id: 1, time: '10:00:01', level: 'INFO', msg: 'Jira Log Viewer initialized' },
-    { id: 2, time: '10:00:05', level: 'DEBUG', msg: 'Connecting to backend...' },
-    { id: 3, time: '10:00:06', level: 'INFO', msg: 'Connection established' }
+    {
+      id: 1,
+      time: "10:00:01",
+      level: "INFO",
+      msg: "Jira Log Viewer initialized",
+    },
+    {
+      id: 2,
+      time: "10:00:05",
+      level: "DEBUG",
+      msg: "Connecting to backend...",
+    },
+    { id: 3, time: "10:00:06", level: "INFO", msg: "Connection established" },
   ]);
 
   function addLog() {
@@ -11,8 +24,8 @@
     logLines.push({
       id: Date.now(),
       time: new Date().toLocaleTimeString(),
-      level: 'INFO',
-      msg: `New log entry #${count}`
+      level: "INFO",
+      msg: `New log entry #${count}`,
     });
   }
 </script>
@@ -28,32 +41,49 @@
     </div>
   </header>
 
-  <section class="hero glass-panel">
-    <div class="hero-content">
-      <h2 class="glow-text">Real-time Analysis</h2>
-      <p>Monitor your Jira instance logs with modern precision.</p>
-      <button class="btn-primary" onclick={addLog}>
-        Generate Log Entry ({count})
-      </button>
-    </div>
-  </section>
+  <nav class="tabs">
+    <button
+      class={activeTab === "logs" ? "active" : ""}
+      onclick={() => (activeTab = "logs")}>Logs</button
+    >
+    <button
+      class={activeTab === "terminal" ? "active" : ""}
+      onclick={() => (activeTab = "terminal")}>Terminal</button
+    >
+  </nav>
 
-  <section class="log-container glass-panel">
-    <div class="log-header">
-      <span>Timestamp</span>
-      <span>Level</span>
-      <span>Message</span>
-    </div>
-    <div class="log-list">
-      {#each logLines as line (line.id)}
-        <div class="log-row">
-          <span class="time">{line.time}</span>
-          <span class="level" data-level={line.level}>{line.level}</span>
-          <span class="msg">{line.msg}</span>
-        </div>
-      {/each}
-    </div>
-  </section>
+  {#if activeTab === "logs"}
+    <section class="hero glass-panel">
+      <div class="hero-content">
+        <h2 class="glow-text">Real-time Analysis</h2>
+        <p>Monitor your Jira instance logs with modern precision.</p>
+        <button class="btn-primary" onclick={addLog}>
+          Generate Log Entry ({count})
+        </button>
+      </div>
+    </section>
+
+    <section class="log-container glass-panel">
+      <div class="log-header">
+        <span>Timestamp</span>
+        <span>Level</span>
+        <span>Message</span>
+      </div>
+      <div class="log-list">
+        {#each logLines as line (line.id)}
+          <div class="log-row">
+            <span class="time">{line.time}</span>
+            <span class="level" data-level={line.level}>{line.level}</span>
+            <span class="msg">{line.msg}</span>
+          </div>
+        {/each}
+      </div>
+    </section>
+  {:else}
+    <section class="terminal-wrapper glass-panel">
+      <Terminal />
+    </section>
+  {/if}
 </main>
 
 <style>
@@ -68,7 +98,33 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tabs button {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .tabs button.active {
+    color: #fff;
+    border-bottom-color: #60a5fa;
+  }
+
+  .tabs button:hover {
+    color: #fff;
   }
 
   .logo {
@@ -91,7 +147,11 @@
     padding: 3rem;
     margin-bottom: 2rem;
     text-align: center;
-    background: linear-gradient(180deg, rgba(30, 30, 35, 0.8) 0%, rgba(30, 30, 35, 0.4) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(30, 30, 35, 0.8) 0%,
+      rgba(30, 30, 35, 0.4) 100%
+    );
   }
 
   .hero h2 {
@@ -108,6 +168,13 @@
   .log-container {
     padding: 1rem;
     min-height: 400px;
+  }
+
+  .terminal-wrapper {
+    height: 600px;
+    padding: 0;
+    overflow: hidden;
+    background: #1e1e1e;
   }
 
   .log-header {
@@ -130,17 +197,23 @@
     display: grid;
     grid-template-columns: 100px 80px 1fr;
     padding: 0.8rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     transition: background 0.2s;
-    font-family: 'JetBrains Mono', monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.9rem;
   }
 
   .log-row:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
   }
 
-  .level[data-level="INFO"] { color: #60a5fa; }
-  .level[data-level="DEBUG"] { color: #a1a1aa; }
-  .level[data-level="ERROR"] { color: #f87171; }
+  .level[data-level="INFO"] {
+    color: #60a5fa;
+  }
+  .level[data-level="DEBUG"] {
+    color: #a1a1aa;
+  }
+  .level[data-level="ERROR"] {
+    color: #f87171;
+  }
 </style>

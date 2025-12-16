@@ -33,6 +33,10 @@
             </releases>
         </repository>
         <repository>
+            <id>jetbrains-dependencies</id>
+            <url>https://packages.jetbrains.team/maven/p/ij/intellij-dependencies</url>
+        </repository>
+        <repository>
             <id>jenkins</id>
             <url>https://repo.jenkins-ci.org/public/</url>
             <snapshots>
@@ -125,6 +129,23 @@
             <groupId>com.atsoft.jira.plugin</groupId>
             <artifactId>jira-log-viewer-frontend</artifactId>
             <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains.pty4j</groupId>
+            <artifactId>pty4j</artifactId>
+            <version>0.12.25</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
