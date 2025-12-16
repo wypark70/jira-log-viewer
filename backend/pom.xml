@@ -153,6 +153,7 @@
         <directory>${project.basedir}/target/${jira.version}</directory>
         <plugins>
             <plugin>
+                <?m2e execute onConfiguration?>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>jira-maven-plugin</artifactId>
                 <version>${amps.version}</version>
@@ -171,7 +172,7 @@
                     </pluginArtifacts>
                     -->
                     <enableQuickReload>true</enableQuickReload>
-
+                    <compressResources>false</compressResources>
                     <!-- See here for an explanation of default instructions: -->
                     <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
@@ -243,8 +244,7 @@
         <!-- TestKit version 6.x for JIRA 6.x -->
         <testkit.version>6.3.11</testkit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.release>8</maven.compiler.release>
     </properties>
 
 </project>
