@@ -171,7 +171,6 @@
         <directory>${project.basedir}/target/${jira.version}</directory>
         <plugins>
             <plugin>
-                <?m2e execute onConfiguration?>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>jira-maven-plugin</artifactId>
                 <version>${amps.version}</version>
