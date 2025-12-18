@@ -144,11 +144,11 @@
             <scope>test</scope>
         </dependency>
         -->
-        <!-- <dependency>
+        <dependency>
             <groupId>com.atsoft.jira.plugin</groupId>
             <artifactId>jira-log-viewer-svelte5</artifactId>
             <version>${project.version}</version>
-        </dependency> -->
+        </dependency>
         <dependency>
             <groupId>org.jetbrains.pty4j</groupId>
             <artifactId>pty4j</artifactId>

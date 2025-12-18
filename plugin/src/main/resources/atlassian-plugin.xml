@@ -14,8 +14,8 @@
     <web-resource key="jira-log-viewer-resources" name="jira-log-viewer Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
 
-        <resource type="download" name="jira-log-viewer.css" location="/css/jira-log-viewer.css" />
-        <resource type="download" name="jira-log-viewer.js" location="/js/jira-log-viewer.js" />
+        <resource type="download" name="jira-log-viewer.js" location="/assets/jira-log-viewer.js" />
+        <resource type="download" name="jira-log-viewer.css" location="/assets/jira-log-viewer.css" />
         <resource type="download" name="images/" location="/images" />
 
         <context>jira-log-viewer</context>
