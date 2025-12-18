@@ -8,17 +8,24 @@
     </plugin-info>
 
     <!-- add our i18n resource -->
-    <resource type="i18n" name="i18n" location="jira-log-viewer"/>
-    
+    <resource type="i18n" name="i18n" location="jira-log-viewer" />
+
     <!-- add our web resources -->
     <web-resource key="jira-log-viewer-resources" name="jira-log-viewer Web Resources">
         <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
-        <resource type="download" name="jira-log-viewer.css" location="/css/jira-log-viewer.css"/>
-        <resource type="download" name="jira-log-viewer.js" location="/js/jira-log-viewer.js"/>
-        <resource type="download" name="images/" location="/images"/>
+
+        <resource type="download" name="jira-log-viewer.css" location="/css/jira-log-viewer.css" />
+        <resource type="download" name="jira-log-viewer.js" location="/js/jira-log-viewer.js" />
+        <resource type="download" name="images/" location="/images" />
 
         <context>jira-log-viewer</context>
     </web-resource>
-    
+
+    <web-resource key="jira-log-viewer-popup-resources" name="jira-log-viewer Popup Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        <resource type="download" name="popup.js" location="/js/popup.js" />
+        <resource type="download" name="popup.css" location="/css/popup.css" />
+        <context>atl.general</context>
+    </web-resource>
+
 </atlassian-plugin>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -36,16 +36,7 @@
             <id>jetbrains-dependencies</id>
             <url>https://packages.jetbrains.team/maven/p/ij/intellij-dependencies</url>
         </repository>
-        <repository>
-            <id>jenkins</id>
-            <url>https://repo.jenkins-ci.org/public/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-        </repository>
+
     </repositories>
 
     <pluginRepositories>
@@ -70,9 +61,17 @@
             <artifactId>jira-api</artifactId>
             <version>${jira.version}</version>
             <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>commons-httpclient</groupId>
+                    <artifactId>commons-httpclient</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!-- Add dependency on jira-core if you want access to JIRA implementation classes as well as the sanctioned API. -->
-        <!-- This is not normally recommended, but may be required eg when migrating a plugin originally developed against JIRA 4.x -->
+        <!-- Add dependency on jira-core if you want access to JIRA implementation classes as well
+        as the sanctioned API. -->
+        <!-- This is not normally recommended, but may be required eg when migrating a plugin
+        originally developed against JIRA 4.x -->
         <!--
         <dependency>
             <groupId>com.atlassian.jira</groupId>
@@ -133,8 +132,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Uncomment to use TestKit in your project. Details at https://bitbucket.org/atlassian/jira-testkit -->
-        <!-- You can read more about TestKit at https://developer.atlassian.com/display/JIRADEV/Plugin+Tutorial+-+Smarter+integration+testing+with+TestKit -->
+        <!-- Uncomment to use TestKit in your project. Details at
+        https://bitbucket.org/atlassian/jira-testkit -->
+        <!-- You can read more about TestKit at
+        https://developer.atlassian.com/display/JIRADEV/Plugin+Tutorial+-+Smarter+integration+testing+with+TestKit -->
         <!--
         <dependency>
             <groupId>com.atlassian.jira.tests</groupId>
@@ -143,11 +144,11 @@
             <scope>test</scope>
         </dependency>
         -->
-        <dependency>
+        <!-- <dependency>
             <groupId>com.atsoft.jira.plugin</groupId>
             <artifactId>jira-log-viewer-svelte5</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>org.jetbrains.pty4j</groupId>
             <artifactId>pty4j</artifactId>
@@ -191,7 +192,8 @@
                     <enableQuickReload>true</enableQuickReload>
                     <compressResources>false</compressResources>
                     <!-- See here for an explanation of default instructions: -->
-                    <!-- https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
+                    <!--
+                    https://developer.atlassian.com/docs/advanced-topics/configuration-of-instructions-in-atlassian-plugins -->
                     <instructions>
                         <Atlassian-Plugin-Key>${atlassian.plugin.key}</Atlassian-Plugin-Key>
 
@@ -204,6 +206,8 @@
                         <Import-Package>
                             org.springframework.osgi.*;resolution:="optional",
                             org.eclipse.gemini.blueprint.*;resolution:="optional",
+                            android.os;resolution:="optional",
+                            kotlin.*;resolution:="optional",
                             *
                         </Import-Package>
 
@@ -233,16 +237,17 @@
     </build>
 
     <properties>
-        <jira.version>9.12.2</jira.version>
+        <jira.version>10.7.4</jira.version>
         <amps.version>9.1.1</amps.version>
         <plugin.testrunner.version>2.0.9</plugin.testrunner.version>
         <atlassian.spring.scanner.version>2.2.4</atlassian.spring.scanner.version>
-        <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
+        <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi
+        bundle's key. -->
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
         <!-- TestKit version 6.x for JIRA 6.x -->
         <testkit.version>6.3.11</testkit.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>8</maven.compiler.release>
+        <maven.compiler.release>17</maven.compiler.release>
         <maven.test.skip>true</maven.test.skip>
     </properties>
 

@@ -1,0 +1,67 @@
+Executing: "D:\Atlassian\atlassian-plugin-sdk-9.1.1\apache-maven-3.9.8\bin\mvn.cmd"  -gs D:\Atlassian\atlassian-plugin-sdk-9.1.1\apache-maven-3.9.8/conf/settings.xml dependency:tree -Dincludes=commons-httpclient
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Jira Log Viewer                                                    [pom]
+[INFO] Jira Log Viewer Svelte5                                            [jar]
+[INFO] Jira Log Viewer Plugin                                [atlassian-plugin]
+[INFO] 
+[INFO] ---------------< com.atsoft.jira.plugin:jira-log-viewer >---------------
+[INFO] Building Jira Log Viewer 1.0.0-SNAPSHOT                            [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:tree (default-cli) @ jira-log-viewer ---
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-svelte5 >-----------
+[INFO] Building Jira Log Viewer Svelte5 1.0.0-SNAPSHOT                    [2/3]
+[INFO]   from svelte5\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- dependency:3.7.0:tree (default-cli) @ jira-log-viewer-svelte5 ---
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-plugin >------------
+[INFO] Building Jira Log Viewer Plugin 1.0.0-SNAPSHOT                     [3/3]
+[INFO]   from plugin\pom.xml
+[INFO] --------------------------[ atlassian-plugin ]--------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-4
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-compiler-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-compiler-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-compiler-plugin:3.14.1
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.4.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[INFO] Artifact commons-httpclient:commons-httpclient:pom:3.1-jenkins-3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [atlassian-public (https://maven.atlassian.com/repository/public, default, releases+snapshots), atlassian-plugin-sdk (file://D:\Atlassian\atlassian-plugin-sdk-9.1.1/repository, default, releases+snapshots), jetbrains-dependencies (https://packages.jetbrains.team/maven/p/ij/intellij-dependencies, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[INFO] Artifact commons-httpclient:commons-httpclient:pom:3.1-jenkins-3 is present in the local repository, but cached from a remote repository ID that is unavailable in current build context, verifying that is downloadable from [atlassian-public (https://maven.atlassian.com/repository/public, default, releases+snapshots), atlassian-plugin-sdk (file://D:\Atlassian\atlassian-plugin-sdk-9.1.1/repository, default, releases+snapshots), jetbrains-dependencies (https://packages.jetbrains.team/maven/p/ij/intellij-dependencies, default, releases+snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[WARNING] The POM for commons-httpclient:commons-httpclient:jar:3.1-jenkins-3 is missing, no dependency information available
+[INFO] 
+[INFO] --- dependency:3.7.0:tree (default-cli) @ jira-log-viewer-plugin ---
+[INFO] com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
+[INFO] \- com.atlassian.jira:jira-api:jar:10.7.4:provided
+[INFO]    \- commons-httpclient:commons-httpclient:jar:3.1-jenkins-3:provided
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Jira Log Viewer 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] Jira Log Viewer .................................... SUCCESS [  0.956 s]
+[INFO] Jira Log Viewer Svelte5 ............................ SUCCESS [  0.026 s]
+[INFO] Jira Log Viewer Plugin ............................. SUCCESS [  1.099 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.573 s
+[INFO] Finished at: 2025-12-18T22:05:23+09:00
+[INFO] ------------------------------------------------------------------------
