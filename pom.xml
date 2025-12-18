@@ -18,7 +18,7 @@
     <description>Parent POM for Jira Log Viewer Plugin</description>
 
     <modules>
-        <module>frontend</module>
-        <module>backend</module>
+        <module>svelte5</module>
+        <module>plugin</module>
     </modules>
 </project>

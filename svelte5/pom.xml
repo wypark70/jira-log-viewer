@@ -10,10 +10,10 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>jira-log-viewer-frontend</artifactId>
+    <artifactId>jira-log-viewer-svelte5</artifactId>
     <packaging>jar</packaging>
 
-    <name>Jira Log Viewer Frontend</name>
+    <name>Jira Log Viewer Svelte5</name>
 
     <build>
         <resources>
@@ -69,8 +69,8 @@
                         <phase>generate-resources</phase>
                         <configuration>
                             <target>
-                                <copy file="dist/assets/jira-log-viewer.js" tofile="../backend/src/main/resources/js/jira-log-viewer.js" overwrite="true"/>
-                                <copy file="dist/assets/jira-log-viewer.css" tofile="../backend/src/main/resources/css/jira-log-viewer.css" overwrite="true"/>
+                                <copy file="dist/assets/jira-log-viewer.js" tofile="../plugin/src/main/resources/js/jira-log-viewer.js" overwrite="true"/>
+                                <copy file="dist/assets/jira-log-viewer.css" tofile="../plugin/src/main/resources/css/jira-log-viewer.css" overwrite="true"/>
                             </target>
                         </configuration>
                         <goals>
