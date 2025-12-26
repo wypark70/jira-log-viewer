@@ -5,18 +5,17 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.sal.api.ApplicationProperties;
 import com.atsoft.jira.plugin.logviewer.api.MyPluginComponent;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
-@ExportAsService ({MyPluginComponent.class})
-@Named ("myPluginComponent")
-public class MyPluginComponentImpl implements MyPluginComponent
-{
-        @ComponentImport
-        private final ApplicationProperties applicationProperties;
+@ExportAsService({ MyPluginComponent.class })
+@Named("myPluginComponent")
+public class MyPluginComponentImpl implements MyPluginComponent {
+    @ComponentImport
+    private final ApplicationProperties applicationProperties;
 
-        @Inject
-    
+    @Inject
+
     public MyPluginComponentImpl(final ApplicationProperties applicationProperties) {
         this.applicationProperties = applicationProperties;
     }
