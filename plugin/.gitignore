@@ -1,4 +1,6 @@
 /target
+
 /src/main/resources/js
 !/src/main/resources/js/popup.js
+
 /src/main/resources/css
