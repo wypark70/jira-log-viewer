@@ -79,7 +79,7 @@ public class IssueCopyHelperTest {
         when(issueService.newIssueInputParameters()).thenReturn(issueInputParameters);
         when(projectManager.getProjectObjByKey("TARGET")).thenReturn(targetProject);
         when(targetProject.getId()).thenReturn(100L);
-        when(issueInputParameters.getActionParameters()).thenReturn(new HashMap<>()); // Ensure map is not null
+        lenient().when(issueInputParameters.getActionParameters()).thenReturn(new HashMap<>()); // Ensure map is not null
 
         issueCopyHelper = new IssueCopyHelper();
     }

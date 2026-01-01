@@ -192,12 +192,8 @@ public class IssueCopyHelper {
         // 3. 필수 필드 검사 및 값 복사 (시스템 필드 + 커스텀 필드)
         populateFields(params, sourceIssue, targetProject, targetIssueTypeId);
 
-        // 4. (옵션) 필수는 아니지만 항상 복사하고 싶은 필드 강제 설정
-        // populateFields에서 필수 필드가 아니어서 건너뛰어졌을 수 있지만, 일반적으로 이 필드들은 복사하는 것이 좋습니다.
-        if (params.getSummary() == null)
-            params.setSummary(sourceIssue.getSummary());
-        if (params.getDescription() == null)
-            params.setDescription(sourceIssue.getDescription());
+        // 4. (옵션) 필수는 아니지만 항상 복사하고 싶은 필드는
+        // populateFields에서 이미 복사되도록 처리되어 있으므로 여기서는 중복 설정을 피합니다.
 
         // 5. 유효성 검사 및 생성
         IssueService.CreateValidationResult validationResult = issueService.validateCreate(user, params);
@@ -221,6 +217,11 @@ public class IssueCopyHelper {
             String targetIssueTypeId) {
         FieldLayout fieldLayout = fieldLayoutManager.getFieldLayout(targetProject, targetIssueTypeId);
         List<FieldLayoutItem> items = fieldLayout.getFieldLayoutItems();
+        // 먼저 시스템 필드(요약, 설명, 우선순위 등)를 기본적으로 복사합니다.
+        // 일부 환경에서는 필드 레이아웃에 '필수'로 표시되어 있지 않아도 시스템 필드는 항상 복사하는 것이 기대됩니다.
+        for (String systemFieldId : systemFieldHandlers.keySet()) {
+            copyField(params, sourceIssue, systemFieldId);
+        }
 
         for (FieldLayoutItem item : items) {
             String fieldId = item.getOrderableField().getId();
@@ -229,8 +230,7 @@ public class IssueCopyHelper {
             if (params.getActionParameters().containsKey(fieldId))
                 continue;
 
-            // 필수 필드이거나, 값을 반드시 복사해야 하는 경우 처리
-            // (여기서는 '필수'인 경우에만 우선 복사하도록 구현)
+            // 필수 필드인 경우 복사
             if (item.isRequired()) {
                 copyField(params, sourceIssue, fieldId);
             }
