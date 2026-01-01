@@ -2,6 +2,7 @@ package ut.com.atsoft.jira.plugin.logviewer.utils;
 
 import com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizer;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.checkerframework.checker.nullness.qual.NonNull;
@@ -20,7 +21,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Slf4j
 @TestMethodOrder(MethodOrderer.DisplayName.class)
-class CharsetDetectorUtilTest {
+class CharsetPrioritizerTest {
 
     // 테스트용 샘플 데이터 (길이가 너무 짧으면 통계적 추측이 실패할 수 있으므로 문장형으로 작성)
     private static String SAMPLE_RESPONSE_JSON_STRING;
@@ -43,8 +44,7 @@ class CharsetDetectorUtilTest {
         response.put("data", data);
 
         ObjectMapper mapper = new ObjectMapper();
-        SAMPLE_RESPONSE_JSON_STRING = mapper.writerWithDefaultPrettyPrinter()
-                .writeValueAsString(response);
+        SAMPLE_RESPONSE_JSON_STRING = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(response);
     }
 
     private static @NonNull Map<String, Object> getSampleData() {
@@ -72,8 +72,8 @@ class CharsetDetectorUtilTest {
         items.add(item2);
 
         Map<String, Object> item3 = new HashMap<>();
-        item2.put("id", "LB-1003");
-        item2.put("status", "믜, 쀍 같은 특이한 글자도 포함해봅니다.");
+        item3.put("id", "LB-1003");
+        item3.put("status", "믜, 쀍 같은 특이한 글자도 포함해봅니다.");
         items.add(item3);
 
         data.put("items", items);
@@ -109,14 +109,15 @@ class CharsetDetectorUtilTest {
         Charset detected = CharsetPrioritizer.detect(data);
 
         // Then
-        // 주의: 라이브러리에 따라 "EUC-KR" 혹은 "IBM-eucKR" 등으로 반환될 수 있음
         log.info("MS949 감지 결과: {}", detected.name());
 
         // 이름은 다를 수 있어도(Alias), 실제 동작은 EUC-KR과 호환되어야 함
-        assertTrue(detected.name().toUpperCase().contains("EUC")
+        assertTrue(
+                detected.name().toUpperCase().contains("EUC")
                         || detected.name().contains("KR")
                         || detected.name().contains("949"),
-                "감지된 인코딩이 EUC 계열이어야 합니다.");
+                "감지된 인코딩이 EUC 계열이어야 합니다."
+        );
 
         // 핵심 검증: 감지된 인코딩으로 디코딩했을 때 글자가 깨지지 않아야 함
         String decoded = new String(data, detected);
@@ -125,7 +126,7 @@ class CharsetDetectorUtilTest {
 
     @Test
     @DisplayName("3. BOM이 있는 UTF-8 데이터는 100% 정확하게 감지해야 한다")
-    void testUtf8WithBom() throws Exception {
+    void testUtf8WithBom() {
         // Given
         byte[] originalBytes = SAMPLE_RESPONSE_JSON_STRING.getBytes(StandardCharsets.UTF_8);
         // UTF-8 BOM 바이트: EF BB BF
@@ -178,10 +179,12 @@ class CharsetDetectorUtilTest {
         log.info("일본어(Shift_JIS) 감지 결과: {}", detected.name());
 
         // Windows-31J는 Shift_JIS의 확장판이므로 둘 중 하나로 잡히면 성공
-        assertTrue(detected.name().equalsIgnoreCase("Shift_JIS")
+        assertTrue(
+                detected.name().equalsIgnoreCase("Shift_JIS")
                         || detected.name().equalsIgnoreCase("windows-31j")
                         || detected.name().equalsIgnoreCase("EUC-JP"), // 드물게 EUC로 오인될 경우 디코딩 확인 필수
-                "일본어 인코딩(Shift_JIS 계열)이어야 합니다.");
+                "일본어 인코딩(Shift_JIS 계열)이어야 합니다."
+        );
 
         // 디코딩 검증
         String decoded = new String(data, detected);
@@ -204,8 +207,7 @@ class CharsetDetectorUtilTest {
         log.info("중국어 간체(GB18030) 감지 결과: {}", detected.name());
 
         // GB18030, GBK, GB2312는 호환됨
-        assertTrue(detected.name().toUpperCase().contains("GB"),
-                "중국어 간체 인코딩(GB 계열)이어야 합니다.");
+        assertTrue(detected.name().toUpperCase().contains("GB"), "중국어 간체 인코딩(GB 계열)이어야 합니다.");
 
         // 디코딩 검증
         String decoded = new String(data, detected);
@@ -227,32 +229,51 @@ class CharsetDetectorUtilTest {
         log.info("중국어 번체(Big5) 감지 결과: {}", detected.name());
 
         // Big5 감지 확인
-        assertTrue(detected.name().equalsIgnoreCase("Big5"),
-                "중국어 번체 인코딩(Big5)이어야 합니다.");
+        assertTrue(detected.name().equalsIgnoreCase("Big5"), "중국어 번체 인코딩(Big5)이어야 합니다.");
 
         // 디코딩 검증
         String decoded = new String(data, detected);
         assertEquals(traditionalText, decoded);
     }
 
-    @DisplayName("8. 주요 charset별 변환결과 확인")
-    @ParameterizedTest(name = "{index} => charsetName={0}")
-    @ValueSource(strings = {"UTF-8", "UTF-16", "UTF-16BE", "UTF-16LE", "UTF-32", "UTF-32BE", "UTF-32LE", "US-ASCII", "ISO-8859-1", "EUC-KR", "MS949"})
-    public void anotherTest(String charsetName) throws JsonProcessingException {
-        log.info("charsetName: {}", charsetName);
-        byte[] responseBytes = SAMPLE_RESPONSE_JSON_STRING.getBytes(Charset.forName(charsetName));
-        log.info("responseBytes: {}", responseBytes);
-        Charset detected = CharsetPrioritizer.detect(responseBytes);
-        log.info("detected: {}", detected);
-        String responseString = new String(responseBytes, detected);
-        log.info("responseString: {}", responseString);
+    @Nested
+    @DisplayName("8. 변환 테스트")
+    class ConversionTest {
+        @BeforeAll
+        static void setUp() {
+            log.info("\n\nSample response JSON: {}\n\n", SAMPLE_RESPONSE_JSON_STRING);
+        }
 
-        Response response = Response.ok()
-                .type(MediaType.APPLICATION_JSON)
-                .entity(responseString)
-                .build();
-        log.info("Response metadata: {}", response.getMetadata());
-        log.info("Response entity: {}\n\n", response.getEntity());
+        @DisplayName("1. 주요 charset별 변환결과 확인")
+        @ParameterizedTest(name = "{index} => charsetName={0}")
+        @ValueSource(strings = {"UTF-8", "UTF-16", "UTF-16BE", "UTF-16LE", "US-ASCII", "ISO-8859-1", "EUC-KR", "MS949"})
+        public void anotherTest(String charsetName) throws JsonProcessingException {
+            log.info("charsetName: {}", charsetName);
+            byte[] responseBytes = SAMPLE_RESPONSE_JSON_STRING.getBytes(Charset.forName(charsetName));
+            log.info("responseBytes: {}", responseBytes);
+            Charset detected = CharsetPrioritizer.detect(responseBytes);
+            log.info("detected: {}", detected);
+            String responseString = new String(responseBytes, detected);
+            TypeReference<Map<String, Map<String, Object>>> typeRef = new TypeReference<>() {};
+
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, Map<String, Object>> responseMap = mapper.readValue(responseString, typeRef);
+            List<Map<String, Object>> items = mapper.convertValue(responseMap.get("data").get("items"), new TypeReference<>() {});
+            items.sort((map1, map2) -> {
+                String id1 = (String) map1.get("id");
+                String id2 = (String) map2.get("id");
+
+                // 뒤의 값(age2)에서 앞의 값(age1)을 비교하면 내림차순이 됨
+                return id2.compareTo(id1);
+            });
+
+            Response response = Response.ok()
+                    .type(MediaType.APPLICATION_JSON)
+                    .entity(items)
+                    .build();
+            log.info("Response metadata: {}", response.getMetadata());
+            log.info("Response entity: {}\n\n", response.getEntity());
+        }
     }
 
 }

@@ -1,75 +1,80 @@
-package ut.com.atsoft.jira.plugin.logviewer.utils;
+package com.atsoft.jira.plugin.logviewer.utils;
 
+import lombok.extern.slf4j.Slf4j;
 import org.mozilla.universalchardet.UniversalDetector;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.*;
 
+@Slf4j
 public class CharsetPrioritizer {
 
     /**
-     * 오판을 줄이기 위해 UTF 계열을 최우선으로 검사하고,
-     * 실패할 경우에만 레거시(MS949) 추측을 수행합니다.
+     * [감지 우선순위]
+     * 1. BOM (Generic 타입 리턴 -> BOM 자동 제거)
+     * 2. UTF-8 (Strict 검증)
+     * 3. UTF-16 (Null 바이트 패턴으로 BE/LE 수동 판별)
+     * 4. Library 추측 (MS949 오탐 보정)
      */
     public static Charset detect(byte[] data) {
         if (data == null || data.length == 0) return StandardCharsets.UTF_8;
 
-        // 1단계: BOM(Byte Order Mark) 확인 (가장 확실)
+        // 1단계: BOM 확인
+        // (BOM이 있으면 'UTF-16' 같은 Generic 타입을 리턴해서
+        //  Java가 디코딩 시 BOM을 자동으로 떼어내게 함)
         Charset bomCharset = checkBom(data);
         if (bomCharset != null) {
             return bomCharset;
         }
 
         // 2단계: 엄격한 UTF-8 검증
-        // (MS949 데이터가 우연히 완벽한 UTF-8 규칙을 지킬 확률은 거의 0에 수렴함)
         if (isValidUtf8(data)) {
             return StandardCharsets.UTF_8;
         }
 
-        // 3단계: UTF-16BE/LE 가능성 타진 (Null Byte 체크)
-        // MS949 텍스트 파일에는 0x00(Null)이 절대 존재하지 않는다는 점을 이용
+        // 3단계: Null 바이트가 포함된 경우 -> UTF-16일 확률 매우 높음
         if (containsNullByte(data)) {
-            // 0x00이 있는데 UTF-8이 아니라면 UTF-16 계열일 확률이 매우 높음
-            if (isValidUtf16(data, StandardCharsets.UTF_16BE)) {
-                return StandardCharsets.UTF_16BE;
-            }
-            if (isValidUtf16(data, StandardCharsets.UTF_16LE)) {
-                return StandardCharsets.UTF_16LE;
+            if (data.length % 2 == 0) {
+                // BOM이 없으므로 구체적인 BE/LE를 리턴해야 함
+                if (isValidCharset(data, StandardCharsets.UTF_16BE)) return StandardCharsets.UTF_16BE;
+                if (isValidCharset(data, StandardCharsets.UTF_16LE)) return StandardCharsets.UTF_16LE;
             }
         }
 
-        // 4단계: 여기까지 왔으면 UTF 계열이 아님 -> 라이브러리 추측 사용
+        // 4단계: 여기까지 왔으면 UTF 계열 아님 -> 라이브러리 추측 사용
         return detectWithLibrary(data);
     }
 
-    // --- 헬퍼 메서드들 ---
+    // --- Helper Methods ---
 
     private static Charset checkBom(byte[] data) {
-        if (data.length >= 3 && (data[0] & 0xFF) == 0xEF && (data[1] & 0xFF) == 0xBB && (data[2] & 0xFF) == 0xBF)
-            return StandardCharsets.UTF_8;
-        if (data.length >= 2 && (data[0] & 0xFF) == 0xFE && (data[1] & 0xFF) == 0xFF)
-            return StandardCharsets.UTF_16BE;
-        if (data.length >= 2 && (data[0] & 0xFF) == 0xFF && (data[1] & 0xFF) == 0xFE)
-            return StandardCharsets.UTF_16LE;
+        int len = data.length;
+
+        // 1. 3바이트 BOM 검사 (UTF-8)
+        if (len >= 3) {
+            if ((data[0] & 0xFF) == 0xEF && (data[1] & 0xFF) == 0xBB && (data[2] & 0xFF) == 0xBF)
+                return StandardCharsets.UTF_8;
+        }
+
+        // 2. 2바이트 BOM 검사 (UTF-16)
+        if (len >= 2) {
+            // UTF-16BE BOM: FE FF
+            if ((data[0] & 0xFF) == 0xFE && (data[1] & 0xFF) == 0xFF)
+                return StandardCharsets.UTF_16; // Generic 리턴 (BOM 자동 제거)
+
+            // UTF-16LE BOM: FF FE
+            if ((data[0] & 0xFF) == 0xFF && (data[1] & 0xFF) == 0xFE)
+                return StandardCharsets.UTF_16; // Generic 리턴 (BOM 자동 제거)
+        }
+
         return null;
     }
 
     private static boolean isValidUtf8(byte[] data) {
-        CharsetDecoder decoder = StandardCharsets.UTF_8.newDecoder();
-        decoder.onMalformedInput(CodingErrorAction.REPORT);
-        decoder.onUnmappableCharacter(CodingErrorAction.REPORT);
-        try {
-            decoder.decode(ByteBuffer.wrap(data));
-            return true;
-        } catch (CharacterCodingException e) {
-            return false;
-        }
+        return isValidCharset(data, StandardCharsets.UTF_8);
     }
 
-    // UTF-16은 짝수 바이트여야 함 + 디코딩 테스트
-    private static boolean isValidUtf16(byte[] data, Charset charset) {
-        if (data.length % 2 != 0) return false; // UTF-16은 반드시 짝수 길이
-
+    private static boolean isValidCharset(byte[] data, Charset charset) {
         CharsetDecoder decoder = charset.newDecoder();
         decoder.onMalformedInput(CodingErrorAction.REPORT);
         decoder.onUnmappableCharacter(CodingErrorAction.REPORT);
@@ -96,15 +101,27 @@ public class CharsetPrioritizer {
         detector.reset();
 
         if (encoding != null) {
-            // 라이브러리가 EUC-KR 등을 뱉으면 MS949로 통일
-            if (encoding.toUpperCase().contains("KR") || encoding.toUpperCase().contains("949")) {
+            String name = encoding.toUpperCase();
+
+            // Windows-1252 오탐 방지 (한국 환경 필승 로직)
+            if (name.equals("WINDOWS-1252") ||
+                    name.equals("ISO-8859-1") ||
+                    name.equals("US-ASCII")) {
                 return Charset.forName("MS949");
             }
+
+            if (name.contains("KR") || name.contains("949") || name.contains("IBM")) {
+                return Charset.forName("MS949");
+            }
+
             try {
                 return Charset.forName(encoding);
             } catch (Exception e) {
+                log.warn("Charset {} is not supported.", encoding);
             }
         }
-        return Charset.forName("MS949"); // 최후의 보루
+
+        return Charset.forName("MS949");
     }
+
 }
