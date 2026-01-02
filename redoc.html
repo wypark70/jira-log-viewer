@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Labelit API Docs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Redoc standalone JS -->
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  </head>
+  <body>
+    <redoc spec-url="openapi.json"></redoc>
+    <script>
+      Redoc.init("openapi.json", {}, document.querySelector("redoc"));
+    </script>
+  </body>
+</html>
