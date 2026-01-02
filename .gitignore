@@ -1,4 +1,9 @@
 .idea
 .vscode
+.kotlin
+.github
+.gradle
+
+build
 
 jira-log-viewer.iml
