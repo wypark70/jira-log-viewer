@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jira-database-config>
+  <name>defaultDS</name>
+  <delegator-name>default</delegator-name>
+  <database-type>postgres72</database-type>
+  <schema-name>public</schema-name>
+  <jdbc-datasource>
+    <url>jdbc:postgresql://postgres:5432/jiradb</url>
+    <driver-class>org.postgresql.Driver</driver-class>
+    <username>jira</username>
+    <password>jirapassword</password>
+    <pool-min-size>5</pool-min-size>
+    <pool-max-size>20</pool-max-size>
+    <max-active>20</max-active>
+  </jdbc-datasource>
+</jira-database-config>

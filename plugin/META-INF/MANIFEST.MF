@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Atlassian-Plugin-Key: com.atsoft.jira.plugin.jira-log-viewer-plugin
+Bundle-Name: Jira Log Viewer Plugin
+Bundle-SymbolicName: com.atsoft.jira.plugin.jira-log-viewer-plugin
+Bundle-Version: 1.0.0.SNAPSHOT
+Bundle-Description: This is the com.atsoft.jira.plugin:jira-log-viewer p
+ lugin for Atlassian JIRA.
+Bundle-Vendor: Example Company
+Bundle-ManifestVersion: 2
+Spring-Context: *
+Import-Package: org.springframework.osgi.*;resolution:="optional",org.ec
+ lipse.gemini.blueprint.*;resolution:="optional",*
+

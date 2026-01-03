@@ -1,0 +1,47 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:13
+    container_name: jira-db
+    environment:
+      - POSTGRES_USER=jira
+      - POSTGRES_PASSWORD=jirapassword
+      - POSTGRES_DB=jiradb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jira -d jiradb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  jira:
+    # Build a custom Jira image that includes the PostgreSQL JDBC driver
+    build:
+      context: ./jira
+      dockerfile: Dockerfile
+    image: jira-custom:10.7.4
+    container_name: jira-debug
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      # Enable remote debugging on 5005
+      - JVM_SUPPORT_RECOMMENDED_ARGS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Datlassian.upm.server.installable=true -Dupm.plugin.upload.enabled=true
+    volumes:
+      - ./jira/plugins:/var/atlassian/application-data/jira/plugins/installed-plugins
+      - jira-data:/var/atlassian/application-data/jira
+      # dbconfig.xml will be copied into the `jira-data` volume at runtime
+      # (Do NOT mount over /opt/atlassian/jira/lib - that hides container runtime jars.)
+      # To add the PostgreSQL JDBC driver, place the jar into the `jira-data` volume or
+      # build a custom image that adds the driver to /opt/atlassian/jira/lib.
+    depends_on:
+      - postgres
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8080 || exit 1"]
+    restart: unless-stopped
+
+volumes:
+  jira-data:
+  pgdata:
