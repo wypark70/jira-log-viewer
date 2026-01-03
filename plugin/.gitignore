@@ -3,3 +3,5 @@ build
 
 src/main/resources/js/jira-log-viewer.js
 src/main/resources/css/jira-log-viewer.css
+
+jira-log-viewer-plugin.iml
