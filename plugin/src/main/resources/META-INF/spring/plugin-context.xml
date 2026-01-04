@@ -1,6 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    xmlns:osgi="http://www.springframework.org/schema/osgi"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+    <!-- Import OSGi Services -->
+    <osgi:reference id="pluginSettingsFactory"
+        interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" />
+
+    <!-- Service Bean with Constructor Injection -->
+    <bean id="logViewerSettingsService"
+        class="com.atsoft.jira.plugin.logviewer.service.impl.LogViewerSettingsServiceImpl">
+        <constructor-arg ref="pluginSettingsFactory" />
+    </bean>
+
+    <!-- Export Service to OSGi -->
+    <osgi:service id="logViewerSettingsServiceOsgi" ref="logViewerSettingsService"
+        interface="com.atsoft.jira.plugin.logviewer.service.LogViewerSettingsService" />
+
+    <!-- WebWork Action with Constructor Injection -->
+    <bean id="logViewerConfigAction"
+        class="com.atsoft.jira.plugin.logviewer.action.LogViewerConfigAction">
+        <constructor-arg ref="logViewerSettingsService" />
+    </bean>
+
+    <!-- JAX-RS Resource with Constructor Injection -->
+    <bean id="logViewerResource"
+        class="com.atsoft.jira.plugin.logviewer.rest.LogViewerResource">
+        <constructor-arg ref="logViewerSettingsService" />
+    </bean>
 
 </beans>

@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>$i18n.getText("logviewer.config.title")</title>
+    <meta name="decorator" content="atl.admin" />
+</head>
+<body>
+    <h2>$i18n.getText("logviewer.config.title")</h2>
+
+    #if($isSaved)
+        <div class="aui-message aui-message-success">
+            <p class="title">
+                <strong>$i18n.getText("logviewer.config.success")</strong>
+            </p>
+        </div>
+    #end
+
+    <form class="aui" action="LogViewerConfig.jspa" method="post">
+        <div class="field-group">
+            <label for="logFilePath">$i18n.getText("logviewer.config.label.path") <span class="aui-icon icon-required"></span></label>
+            <input class="text" type="text" id="logFilePath" name="logFilePath" value="$!logFilePath">
+            #if($errors.logFilePath)
+                <div class="error">$errors.logFilePath</div>
+            #end
+            <div class="description">$i18n.getText("logviewer.config.desc.path")</div>
+        </div>
+
+        <div class="field-group">
+            <label for="lineCount">$i18n.getText("logviewer.config.label.lines") <span class="aui-icon icon-required"></span></label>
+            <input class="text" type="number" id="lineCount" name="lineCount" value="$!lineCount">
+             #if($errors.lineCount)
+                <div class="error">$errors.lineCount</div>
+            #end
+            <div class="description">$i18n.getText("logviewer.config.desc.lines")</div>
+        </div>
+
+        <div class="buttons-container">
+            <div class="buttons">
+                <input class="button submit" type="submit" value="$i18n.getText('common.words.save')">
+            </div>
+        </div>
+        
+        ## Form Token for CSRF protection
+        <input type="hidden" name="atl_token" value="$atl_token" />
+    </form>
+</body>
+</html>

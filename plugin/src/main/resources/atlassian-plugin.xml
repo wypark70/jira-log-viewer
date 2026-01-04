@@ -5,6 +5,7 @@
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
+        <param name="configure.url">/secure/admin/LogViewerConfig!default.jspa</param>
     </plugin-info>
 
     <!-- add our i18n resource -->
@@ -34,7 +35,16 @@
                 alias="LogViewerAction">
                 <view name="input">/templates/log-viewer.vm</view>
             </action>
+            <action name="com.atsoft.jira.plugin.logviewer.action.LogViewerConfigAction"
+                alias="LogViewerConfig">
+                <view name="input">/templates/log-viewer-config.vm</view>
+            </action>
         </actions>
     </webwork1>
+
+    <!-- REST Module -->
+    <rest key="jira-log-viewer-rest" path="/logviewer" version="1.0">
+        <package>com.atsoft.jira.plugin.logviewer.rest</package>
+    </rest>
 
 </atlassian-plugin>

@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
-[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 337, column 21
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 349, column 21
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -57,17 +57,33 @@ as no stability/compatibility guarantees are given on
 compiler or generated code. Use it at your own risk!
 
 [WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
-[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/servlet/LogViewerServlet.kt:29:77 Unresolved reference 'TEMPLATE_SOURCE_RESOURCE'.
-[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/servlet/LogViewerServlet.kt:30:14 Unresolved reference 'withTemplate'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:12:2 Unresolved reference 'Named'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:13:26 Unresolved reference 'Inject'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:14:6 Unresolved reference 'Named'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:11:18 Unresolved reference 'LogViewerSettingsService'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:11:18 Annotation argument must be a compile-time constant.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:14:5 Unresolved reference 'LogViewerSettingsService'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:20:5 'getLogFilePath' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:24:5 'setLogFilePath' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:28:5 'getLineCount' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:33:5 'setLineCount' overrides nothing.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.330 s
-[INFO] Finished at: 2026-01-04T09:35:16+09:00
+[INFO] Total time:  4.355 s
+[INFO] Finished at: 2026-01-04T13:16:18+09:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.jetbrains.kotlin:kotlin-maven-plugin:2.2.20:compile (compile) on project jira-log-viewer-plugin: Compilation failure: Compilation failure: 
-[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/servlet/LogViewerServlet.kt:29:77 Unresolved reference 'TEMPLATE_SOURCE_RESOURCE'.
-[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/servlet/LogViewerServlet.kt:30:14 Unresolved reference 'withTemplate'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:12:2 Unresolved reference 'Named'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:13:26 Unresolved reference 'Inject'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/rest/LogViewerResource.kt:14:6 Unresolved reference 'Named'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:11:18 Unresolved reference 'LogViewerSettingsService'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:11:18 Annotation argument must be a compile-time constant.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:14:5 Unresolved reference 'LogViewerSettingsService'.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:20:5 'getLogFilePath' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:24:5 'setLogFilePath' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:28:5 'getLineCount' overrides nothing.
+[ERROR] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/service/impl/LogViewerSettingsServiceImpl.kt:33:5 'setLineCount' overrides nothing.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
