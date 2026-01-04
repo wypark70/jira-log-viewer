@@ -1,0 +1,418 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 337, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-plugin >------------
+[INFO] Building Jira Log Viewer Plugin 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------[ atlassian-plugin ]--------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-4
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-compiler-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-compiler-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-compiler-plugin:3.14.1
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.4.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[INFO] 
+[INFO] --- jira:9.11.1:compress-resources (default-compress-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ jira-log-viewer-plugin ---
+[INFO] Copying 9 resources from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-plugin-descriptor (default-filter-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:compile (compile) @ jira-log-viewer-plugin ---
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (compile) @ jira-log-viewer-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- jira:9.11.1:generate-rest-docs (default-generate-rest-docs) @ jira-log-viewer-plugin ---
+[INFO] Skipping REST documentation generation as it is not supported on Java 13 or greater
+[INFO] 
+[INFO] --- atlassian-spring-scanner:5.0.1:atlassian-spring-scanner (default) @ jira-log-viewer-plugin ---
+[INFO] Starting Atlassian Spring Byte Code Scanner...
+[INFO] 
+[INFO] 	(/) The following directory will be scanned for annotations:
+[INFO] 		file:/D:/DevHome/projects/jira-log-viewer/plugin/target/10.7.4/classes/
+[INFO] 
+[INFO] 	Analysis ran in 419 ms.
+[INFO] 	Encountered 1103 total classes
+[INFO] 	Processed 3 annotated classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\test\resources to target\10.7.4\test-classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-test-plugin-descriptor (default-filter-test-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\test\resources to target\10.7.4\test-classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:test-compile (test-compile) @ jira-log-viewer-plugin ---
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\test\java
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (testCompile) @ jira-log-viewer-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- jira:9.11.1:unit-test (default-unit-test) @ jira-log-viewer-plugin ---
+[INFO] Surefire 3.2.5 test configuration:
+[INFO] <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <systemPropertyVariables/>
+  <excludes>
+    <exclude>%regex[it[/\\].*]</exclude>
+    <exclude>**/*$*</exclude>
+  </excludes>
+  <excludedGroups/>
+</configuration>
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ut.com.atsoft.jira.plugin.logviewer.MyComponentUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in ut.com.atsoft.jira.plugin.logviewer.MyComponentUnitTest
+[INFO] Running ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest
+08:28:11.664 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- UTF-8 ���� ���: UTF-8
+08:28:11.697 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- MS949 ���� ���: x-windows-949
+08:28:11.699 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- BOM UTF-8 ���� ���: UTF-8
+08:28:11.701 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- ASCII ������ ���� ���: UTF-8
+08:28:11.705 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �Ϻ���(Shift_JIS) ���� ���: Shift_JIS
+08:28:11.708 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �߱��� ��ü(GB18030) ���� ���: GB18030
+08:28:11.716 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �߱��� ��ü(Big5) ���� ���: Big5
+08:28:11.746 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- 
+
+{
+  "header" : {
+    "resultCode" : 200,
+    "resultMessage" : "SUCCESS"
+  },
+  "data" : {
+    "pagination" : {
+      "page" : 1,
+      "total" : 150
+    },
+    "items" : [ {
+      "id" : "LB-1001",
+      "status" : "�ȳ��ϼ���."
+    }, {
+      "id" : "LB-1002",
+      "status" : "�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�."
+    }, {
+      "id" : "LB-1003",
+      "status" : "��, �� ���� Ư���� ���ڵ� �����غ��ϴ�."
+    } ]
+  }
+}
+
+
+08:28:11.746 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-8
+08:28:11.748 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:28:11.749 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:28:11.774 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:28:11.780 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16
+08:28:11.781 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [-2, -1, 0, 123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104]
+08:28:11.781 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16
+08:28:11.782 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:28:11.784 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16BE
+08:28:11.784 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [0, 123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104, 0, 101]
+08:28:11.785 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16BE
+08:28:11.785 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:28:11.787 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16LE
+08:28:11.788 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104, 0, 101, 0]
+08:28:11.789 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16LE
+08:28:11.790 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:28:11.792 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: US-ASCII
+08:28:11.792 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:28:11.792 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:28:11.793 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ?? ??? ??? ??????.}, {id=LB-1002, status=??? ?? ??? ?? ??????.}, {id=LB-1001, status=?????.}]
+
+
+08:28:11.795 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: ISO-8859-1
+08:28:11.795 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:28:11.795 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:28:11.796 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ?? ??? ??? ??????.}, {id=LB-1002, status=??? ?? ??? ?? ??????.}, {id=LB-1001, status=?????.}]
+
+
+08:28:11.798 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: EUC-KR
+08:28:11.800 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:28:11.800 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: x-windows-949
+08:28:11.801 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:28:11.803 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: MS949
+08:28:11.803 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:28:11.804 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: x-windows-949
+08:28:11.804 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 s -- in ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jira:9.11.1:post-process-resources (default-post-process-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- jira:9.11.1:validate-banned-dependencies (default-validate-banned-dependencies) @ jira-log-viewer-plugin ---
+[INFO] Dependencies excluded from banning: []
+[INFO] Scanning using platform version range: '[0,)'
+[INFO] Skipping Rule Enforcement.
+[INFO] No banned dependencies found!
+[INFO] 
+[INFO] --- jira:9.11.1:copy-bundled-dependencies (default-copy-bundled-dependencies) @ jira-log-viewer-plugin ---
+[INFO] com.github.albfernandez:juniversalchardet:jar:2.4.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains:annotations:jar:13.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:2.2.20 already exists in destination.
+[INFO] io.github.microutils:kotlin-logging-jvm:jar:3.0.5 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.8.0 already exists in destination.
+[WARNING] Extracting your plugin's dependencies caused the following file(s) to overwrite each other:
+[WARNING] -- META-INF\versions\9\module-info.class from [kotlin-stdlib-2.2.20-jar, kotlin-stdlib-jdk7-2.2.20-jar, kotlin-stdlib-jdk8-2.2.20-jar]
+[WARNING] To prevent this, set <extractDependencies> to false in your AMPS configuration
+[INFO] 
+[INFO] --- jira:9.11.1:copy-test-bundled-dependencies (default-copy-test-bundled-dependencies) @ jira-log-viewer-plugin ---
+[INFO] com.atlassian.jira:jira-api:jar:10.7.4 already exists in destination.
+[INFO] com.atlassian.annotations:atlassian-annotations:jar:5.1.1 already exists in destination.
+[INFO] com.atlassian.ofbiz:entityengine-share:jar:4.0.2 already exists in destination.
+[INFO] xerces:xercesImpl:jar:2.12.2 already exists in destination.
+[INFO] xml-apis:xml-apis:jar:1.4.01 already exists in destination.
+[INFO] com.atlassian.ofbiz:entityengine:jar:4.0.2 already exists in destination.
+[INFO] jakarta.transaction:jakarta.transaction-api:jar:1.3.3 already exists in destination.
+[INFO] com.atlassian.collectors:atlassian-collectors-util:jar:1.1 already exists in destination.
+[INFO] opensymphony:webwork:jar:1.4-atlassian-31 already exists in destination.
+[INFO] com.atlassian.html:atlassian-html-encoder:jar:1.4 already exists in destination.
+[INFO] webwork:pell-multipart-request:jar:1.31.0 already exists in destination.
+[INFO] com.atlassian.core:atlassian-core-logging:jar:9.0.0 already exists in destination.
+[INFO] com.atlassian.core:atlassian-core-user:jar:9.0.0 already exists in destination.
+[INFO] com.atlassian.core:atlassian-core:jar:9.0.0 already exists in destination.
+[INFO] com.atlassian.core:atlassian-core-thumbnail:jar:9.0.0 already exists in destination.
+[INFO] com.twelvemonkeys.imageio:imageio-core:jar:3.8.2 already exists in destination.
+[INFO] com.twelvemonkeys.common:common-lang:jar:3.8.2 already exists in destination.
+[INFO] com.twelvemonkeys.common:common-io:jar:3.8.2 already exists in destination.
+[INFO] com.twelvemonkeys.common:common-image:jar:3.8.2 already exists in destination.
+[INFO] com.atlassian.extras:atlassian-extras:jar:3.4.6 already exists in destination.
+[INFO] commons-codec:commons-codec:jar:1.11 already exists in destination.
+[INFO] com.atlassian.extras:atlassian-extras-key-manager:jar:3.4.6 already exists in destination.
+[INFO] com.atlassian.extras:atlassian-extras-common:jar:3.4.6 already exists in destination.
+[INFO] com.atlassian.extras:atlassian-extras-api:jar:3.4.6 already exists in destination.
+[INFO] com.atlassian.velocity:atlassian-velocity:jar:1.4 already exists in destination.
+[INFO] org.apache.commons:commons-text:jar:1.9 already exists in destination.
+[INFO] opensymphony:oscore:jar:2.2.7-atlassian-1 already exists in destination.
+[INFO] org.apache.velocity:velocity:jar:1.6.4-atlassian-39 already exists in destination.
+[INFO] commons-collections:commons-collections:jar:3.2.2 already exists in destination.
+[INFO] osworkflow:osworkflow:jar:2.9.0-atlassian-1 already exists in destination.
+[INFO] opensymphony:propertyset:jar:1.5 already exists in destination.
+[INFO] com.atlassian.cache:atlassian-cache-api:jar:7.0.1 already exists in destination.
+[INFO] com.atlassian.instrumentation:atlassian-instrumentation-core:jar:4.0.0 already exists in destination.
+[INFO] io.atlassian.util.concurrent:atlassian-util-concurrent:jar:4.0.1 already exists in destination.
+[INFO] com.google.code.findbugs:jsr305:jar:3.0.2 already exists in destination.
+[INFO] com.atlassian.beehive:beehive-api:jar:6.0.0 already exists in destination.
+[INFO] com.atlassian.tenancy:atlassian-tenancy-api:jar:4.0.1 already exists in destination.
+[INFO] com.atlassian.event:atlassian-event:jar:4.0.5 already exists in destination.
+[INFO] com.atlassian.upgrade:upgrade-task-framework-api:jar:2.0.2 already exists in destination.
+[INFO] com.atlassian.crowd:embedded-crowd-api:jar:6.2.4 already exists in destination.
+[INFO] com.google.guava:guava:jar:33.2.1-jre already exists in destination.
+[INFO] com.google.guava:failureaccess:jar:1.0.2 already exists in destination.
+[INFO] com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava already exists in destination.
+[INFO] org.checkerframework:checker-qual:jar:3.42.0 already exists in destination.
+[INFO] com.google.errorprone:error_prone_annotations:jar:2.26.1 already exists in destination.
+[INFO] com.google.j2objc:j2objc-annotations:jar:3.0.0 already exists in destination.
+[INFO] io.atlassian.fugue:fugue:jar:6.1.2 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-annotations:jar:2.17.3 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-databind:jar:2.17.3 already exists in destination.
+[INFO] com.fasterxml.jackson.core:jackson-core:jar:2.17.3 already exists in destination.
+[INFO] io.swagger.core.v3:swagger-annotations:jar:2.2.21 already exists in destination.
+[INFO] com.sun.mail:jakarta.mail:jar:1.6.8 already exists in destination.
+[INFO] com.sun.activation:jakarta.activation:jar:1.2.1 already exists in destination.
+[INFO] com.atlassian.mail:atlassian-mail:jar:7.0.7 already exists in destination.
+[INFO] jakarta.mail:jakarta.mail-api:jar:1.6.7 already exists in destination.
+[INFO] jakarta.activation:jakarta.activation-api:jar:1.2.2 already exists in destination.
+[INFO] oro:oro:jar:2.0.8 already exists in destination.
+[INFO] com.atlassian.applinks:applinks-api:jar:10.2.3 already exists in destination.
+[INFO] com.google.javascript:closure-compiler-unshaded:jar:v20181008 already exists in destination.
+[INFO] com.google.javascript:closure-compiler-externs:jar:v20181008 already exists in destination.
+[INFO] args4j:args4j:jar:2.0.26 already exists in destination.
+[INFO] com.google.jsinterop:jsinterop-annotations:jar:1.0.0 already exists in destination.
+[INFO] com.google.protobuf:protobuf-java:jar:3.25.5 already exists in destination.
+[INFO] com.atlassian.velocity.htmlsafe:velocity-htmlsafe:jar:5.0.1 already exists in destination.
+[INFO] com.atlassian.plugins:atlassian-plugins-api:jar:8.1.2 already exists in destination.
+[INFO] com.atlassian.plugins:atlassian-plugins-webfragment-api:jar:7.2.0 already exists in destination.
+[INFO] com.atlassian.ozymandias:atlassian-plugin-point-safety:jar:1.0.0 already exists in destination.
+[INFO] jfree:jfreechart:jar:1.0.13 already exists in destination.
+[INFO] com.atlassian.plugins:atlassian-plugins-webresource-api:jar:7.3.0 already exists in destination.
+[INFO] jfree:jcommon:jar:1.0.8 already exists in destination.
+[INFO] com.atlassian.sal:sal-api:jar:6.0.5 already exists in destination.
+[INFO] com.atlassian.gadgets:atlassian-gadgets-api:jar:9.0.30 already exists in destination.
+[INFO] com.atlassian.johnson:atlassian-johnson-core:jar:5.0.0 already exists in destination.
+[INFO] joda-time:joda-time:jar:2.12.7 already exists in destination.
+[INFO] org.apache.commons:commons-lang3:jar:3.18.0 already exists in destination.
+[INFO] commons-io:commons-io:jar:2.18.0 already exists in destination.
+[INFO] org.apache.logging.log4j:log4j-1.2-api:jar:2.20.0 already exists in destination.
+[INFO] org.apache.logging.log4j:log4j-api:jar:2.20.0 already exists in destination.
+[INFO] com.atlassian.profiling:atlassian-profiling:jar:5.0.1 already exists in destination.
+[INFO] com.atlassian.scheduler:atlassian-scheduler-api:jar:5.0.1 already exists in destination.
+[INFO] com.atlassian.analytics:analytics-api:jar:9.2.7 already exists in destination.
+[INFO] com.atlassian.application:atlassian-application-api:jar:3.0.1 already exists in destination.
+[INFO] jakarta.validation:jakarta.validation-api:jar:2.0.2 already exists in destination.
+[INFO] jakarta.inject:jakarta.inject-api:jar:1.0.5 already exists in destination.
+[INFO] com.atlassian:lucene-extras:jar:7.3.1-atlassian-4 already exists in destination.
+[INFO] commons-beanutils:commons-beanutils:jar:1.11.0 already exists in destination.
+[INFO] com.atlassian.plugins:atlassian-whitelist-api-plugin:jar:6.1.1 already exists in destination.
+[INFO] com.atlassian.webhooks:atlassian-webhooks-api:jar:8.1.6 already exists in destination.
+[INFO] com.atlassian.webhooks:atlassian-webhooks-spi:jar:8.1.6 already exists in destination.
+[INFO] com.google.code.gson:gson:jar:2.11.0 already exists in destination.
+[INFO] com.atlassian.theme:atlassian-theme-api:jar:2.0.0 already exists in destination.
+[INFO] org.junit.jupiter:junit-jupiter:jar:5.11.0 already exists in destination.
+[INFO] org.junit.jupiter:junit-jupiter-api:jar:5.11.0 already exists in destination.
+[INFO] org.opentest4j:opentest4j:jar:1.3.0 already exists in destination.
+[INFO] org.junit.platform:junit-platform-commons:jar:1.11.0 already exists in destination.
+[INFO] org.apiguardian:apiguardian-api:jar:1.1.2 already exists in destination.
+[INFO] org.junit.jupiter:junit-jupiter-params:jar:5.11.0 already exists in destination.
+[INFO] org.junit.jupiter:junit-jupiter-engine:jar:5.11.0 already exists in destination.
+[INFO] org.junit.platform:junit-platform-engine:jar:1.11.0 already exists in destination.
+[INFO] org.mockito:mockito-core:jar:5.12.0 already exists in destination.
+[INFO] net.bytebuddy:byte-buddy:jar:1.14.15 already exists in destination.
+[INFO] net.bytebuddy:byte-buddy-agent:jar:1.14.15 already exists in destination.
+[INFO] org.objenesis:objenesis:jar:3.3 already exists in destination.
+[INFO] org.mockito:mockito-junit-jupiter:jar:5.12.0 already exists in destination.
+[INFO] com.atlassian.jira:jira-tests:jar:10.7.4 already exists in destination.
+[INFO] org.junit.vintage:junit-vintage-engine:jar:5.7.0 already exists in destination.
+[INFO] org.hamcrest:hamcrest-core:jar:1.3 already exists in destination.
+[INFO] org.hamcrest:hamcrest-library:jar:1.3 already exists in destination.
+[INFO] mockobjects:mockobjects-jdk1.3-j2ee1.3:jar:0.07 already exists in destination.
+[INFO] com.atlassian.inception:inception:jar:1.25 already exists in destination.
+[INFO] com.atlassian.modzdetector:modz-detector:jar:0.2 already exists in destination.
+[INFO] com.atlassian.plugin:atlassian-spring-scanner-annotation:jar:5.0.1 already exists in destination.
+[INFO] javax.inject:javax.inject:jar:1 already exists in destination.
+[INFO] com.atlassian.plugins:atlassian-plugins-osgi-testrunner:jar:2.0.16 already exists in destination.
+[INFO] org.codehaus.jackson:jackson-core-asl:jar:1.9.14-atlassian-6 already exists in destination.
+[INFO] org.apache.wink:wink-client:jar:1.1.3-incubating already exists in destination.
+[INFO] org.apache.wink:wink-common:jar:1.1.3-incubating already exists in destination.
+[INFO] org.apache.geronimo.specs:geronimo-annotation_1.1_spec:jar:1.0 already exists in destination.
+[INFO] javax.xml.bind:jaxb-api:jar:2.2 already exists in destination.
+[INFO] javax.xml.stream:stax-api:jar:1.0-2 already exists in destination.
+[INFO] com.sun.xml.bind:jaxb-impl:jar:2.2.1.1 already exists in destination.
+[INFO] javax.activation:activation:jar:1.1 already exists in destination.
+[INFO] com.atlassian.upm:upm-api:jar:6.5.7 already exists in destination.
+[INFO] javax.ws.rs:jsr311-api:jar:1.1.1 already exists in destination.
+[INFO] javax.servlet:javax.servlet-api:jar:3.1.0 already exists in destination.
+[INFO] com.atlassian.templaterenderer:atlassian-template-renderer-api:jar:7.1.1 already exists in destination.
+[INFO] jakarta.ws.rs:jakarta.ws.rs-api:jar:3.1.0 already exists in destination.
+[INFO] org.slf4j:slf4j-api:jar:2.0.16 already exists in destination.
+[INFO] org.projectlombok:lombok:jar:1.18.42 already exists in destination.
+[INFO] ch.qos.logback:logback-classic:jar:1.5.23 already exists in destination.
+[INFO] ch.qos.logback:logback-core:jar:1.5.23 already exists in destination.
+[INFO] com.github.albfernandez:juniversalchardet:jar:2.4.0 already exists in destination.
+[INFO] org.apache.lucene:lucene-core:jar:8.10.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains:annotations:jar:13.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-test-junit:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-test:jar:2.2.20 already exists in destination.
+[INFO] io.github.microutils:kotlin-logging-jvm:jar:3.0.5 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.8.0 already exists in destination.
+[INFO] 
+[INFO] --- jira:9.11.1:copy-fe-bundled-metadata (default-copy-fe-bundled-metadata) @ jira-log-viewer-plugin ---
+[INFO] Copying bundled frontend metadata
+[INFO] com.github.albfernandez:juniversalchardet:jar:2.4.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk8:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib:jar:2.2.20 already exists in destination.
+[INFO] org.jetbrains:annotations:jar:13.0 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-jdk7:jar:2.2.20 already exists in destination.
+[INFO] io.github.microutils:kotlin-logging-jvm:jar:3.0.5 already exists in destination.
+[INFO] org.jetbrains.kotlin:kotlin-stdlib-common:jar:1.8.0 already exists in destination.
+[INFO] 
+[INFO] --- jira:9.11.1:copy-fe-module-manifests (default-copy-fe-module-manifests) @ jira-log-viewer-plugin ---
+[INFO] There were no frontend module manifest files specified to include in the artifact
+[INFO] 
+[INFO] --- jira:9.11.1:report-fe-manifest-associations (default-report-fe-manifest-associations) @ jira-log-viewer-plugin ---
+[INFO] There were no frontend manifest associations found. Skipping generating final mapping.
+[INFO] There were no frontend dependency declarations found. Skipping generating final mapping.
+[INFO] 
+[INFO] --- jira:9.11.1:generate-manifest (default-generate-manifest) @ jira-log-viewer-plugin ---
+[INFO] Generating a manifest for this plugin
+[INFO] using maven-bundle-plugin v5.1.9
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Unused Import-Package instructions: [org.springframework.osgi.*, org.eclipse.gemini.blueprint.*, javax.ws.rs*, org.mozilla.universalchardet*] 
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.api,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.helper,  has 2,  private references [kotlin, kotlin.jvm.internal]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.impl,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.servlet,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.utils,  has 3,  private references [kotlin, kotlin.jvm, mu]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Classes found in the wrong directory: {META-INF/versions/9/module-info.class=module-info}
+[INFO] Writing manifest: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\classes\META-INF\MANIFEST.MF
+[INFO] 
+[INFO] --- jira:9.11.1:generate-test-manifest (default-generate-test-manifest) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- jira:9.11.1:validate-manifest (default-validate-manifest) @ jira-log-viewer-plugin ---
+[INFO] Manifest found, validating...
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  22.496 s
+[INFO] Finished at: 2026-01-04T08:28:25+09:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal com.atlassian.maven.plugins:jira-maven-plugin:9.11.1:validate-manifest (default-validate-manifest) on project jira-log-viewer-plugin: 
+[ERROR] 
+[ERROR] atlassian-plugin.xml contains a definition of component-import. This is not allowed when Atlassian-Plugin-Key is set.
+[ERROR] 
+[ERROR] Please check the documentation of https://bitbucket.org/atlassian/atlassian-spring-scanner or https://developer.atlassian.com/display/DOCS/Configuration+of+Instructions+in+Atlassian+Plugins for further details.
+[ERROR] 
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -21,4 +21,20 @@
         <context>jira-log-viewer</context>
     </web-resource>
 
+    <!-- Web Resource -->
+    <web-resource key="log-viewer-resources" name="Log Viewer Resources">
+        <dependency>com.atlassian.auiplugin:aui-experimental</dependency>
+        <resource type="download" name="logv-iewer.js" location="js/log-viewer.js" />
+    </web-resource>
+
+    <!-- WebWork Action -->
+    <webwork1 key="log-viewer-action" name="Log Viewer Action" class="java.lang.Object">
+        <actions>
+            <action name="com.atsoft.jira.plugin.logviewer.action.LogViewerAction"
+                alias="LogViewerAction">
+                <view name="input">/templates/log-viewer.vm</view>
+            </action>
+        </actions>
+    </webwork1>
+
 </atlassian-plugin>

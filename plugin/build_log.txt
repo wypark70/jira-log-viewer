@@ -1,0 +1,70 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 337, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-plugin >------------
+[INFO] Building Jira Log Viewer Plugin 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------[ atlassian-plugin ]--------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-4
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-compiler-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-compiler-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-compiler-plugin:3.14.1
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.4.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[INFO] 
+[INFO] --- jira:9.11.1:compress-resources (default-compress-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ jira-log-viewer-plugin ---
+[INFO] Copying 9 resources from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-plugin-descriptor (default-filter-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:compile (compile) @ jira-log-viewer-plugin ---
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[WARNING] file:///D:/DevHome/projects/jira-log-viewer/plugin/src/main/kotlin/com/atsoft/jira/plugin/logviewer/servlet/LogViewerServlet.kt:14:5 This annotation is currently applied to the value parameter only, but in the future it will also be applied to field.
+- To opt in to applying to both value parameter and field, add '-Xannotation-default-target=param-property' to your compiler arguments.
+- To keep applying to the value parameter only, use the '@param:' annotation target.
+
+See https://youtrack.jetbrains.com/issue/KT-73255 for more details.
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (compile) @ jira-log-viewer-plugin ---
+[INFO] No sources to compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.752 s
+[INFO] Finished at: 2026-01-04T08:14:46+09:00
+[INFO] ------------------------------------------------------------------------

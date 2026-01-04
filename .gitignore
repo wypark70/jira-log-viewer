@@ -7,3 +7,5 @@
 build
 
 jira-log-viewer.iml
+
+/docker/jira/plugins

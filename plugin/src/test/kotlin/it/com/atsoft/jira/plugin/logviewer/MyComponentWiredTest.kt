@@ -1,11 +1,11 @@
 package it.com.atsoft.jira.plugin.logviewer
 
+import com.atlassian.plugins.osgi.test.AtlassianPluginsTestRunner
+import com.atlassian.sal.api.ApplicationProperties
+import com.atsoft.jira.plugin.logviewer.api.MyPluginComponent
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
-import com.atlassian.plugins.osgi.test.AtlassianPluginsTestRunner
-import com.atsoft.jira.plugin.logviewer.api.MyPluginComponent
-import com.atlassian.sal.api.ApplicationProperties
-import org.junit.Assert.assertEquals
 
 @RunWith(AtlassianPluginsTestRunner::class)
 class MyComponentWiredTest(private val applicationProperties: ApplicationProperties, private val myPluginComponent: MyPluginComponent) {

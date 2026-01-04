@@ -1,0 +1,16 @@
+<html>
+<head>
+    <meta name="decorator" content="atl.general"/>
+    <title>Log Viewer</title>
+    $webResourceManager.requireResource("com.atsoft.jira.plugin.jira-log-viewer-plugin:jira-log-viewer-resources")
+</head>
+<body>
+<h2>Application Logs</h2>
+<ul>
+    #foreach($log in $logs)
+        <li>$log</li>
+    #end
+</ul>
+<button id="refresh-btn">Refresh Logs</button>
+</body>
+</html>

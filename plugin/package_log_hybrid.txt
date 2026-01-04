@@ -1,0 +1,415 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 338, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-plugin >------------
+[INFO] Building Jira Log Viewer Plugin 1.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------[ atlassian-plugin ]--------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-4
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-compiler-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-compiler-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-compiler-plugin:3.14.1
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.4.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ jira-log-viewer-plugin ---
+[INFO] Deleting D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4
+[INFO] 
+[INFO] --- jira:9.11.1:compress-resources (default-compress-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ jira-log-viewer-plugin ---
+[INFO] Copying 9 resources from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-plugin-descriptor (default-filter-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:compile (compile) @ jira-log-viewer-plugin ---
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\main\java
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (compile) @ jira-log-viewer-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- jira:9.11.1:generate-rest-docs (default-generate-rest-docs) @ jira-log-viewer-plugin ---
+[INFO] Skipping REST documentation generation as it is not supported on Java 13 or greater
+[INFO] 
+[INFO] --- atlassian-spring-scanner:5.0.1:atlassian-spring-scanner (default) @ jira-log-viewer-plugin ---
+[INFO] Starting Atlassian Spring Byte Code Scanner...
+[INFO] 
+[INFO] 	(/) The following directory will be scanned for annotations:
+[INFO] 		file:/D:/DevHome/projects/jira-log-viewer/plugin/target/10.7.4/classes/
+[INFO] 
+[INFO] 	Analysis ran in 184 ms.
+[INFO] 	Encountered 9 total classes
+[INFO] 	Processed 1 annotated classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\test\resources to target\10.7.4\test-classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-test-plugin-descriptor (default-filter-test-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\test\resources to target\10.7.4\test-classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:test-compile (test-compile) @ jira-log-viewer-plugin ---
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\src\test\java
+[WARNING] Source root doesn't exist: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\generated-test-sources\test-annotations
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (testCompile) @ jira-log-viewer-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- jira:9.11.1:unit-test (default-unit-test) @ jira-log-viewer-plugin ---
+[INFO] Surefire 3.2.5 test configuration:
+[INFO] <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <systemPropertyVariables/>
+  <excludes>
+    <exclude>%regex[it[/\\].*]</exclude>
+    <exclude>**/*$*</exclude>
+  </excludes>
+  <excludedGroups/>
+</configuration>
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ut.com.atsoft.jira.plugin.logviewer.MyComponentUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in ut.com.atsoft.jira.plugin.logviewer.MyComponentUnitTest
+[INFO] Running ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest
+08:42:45.539 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- UTF-8 ���� ���: UTF-8
+08:42:45.565 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- MS949 ���� ���: x-windows-949
+08:42:45.568 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- BOM UTF-8 ���� ���: UTF-8
+08:42:45.570 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- ASCII ������ ���� ���: UTF-8
+08:42:45.574 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �Ϻ���(Shift_JIS) ���� ���: Shift_JIS
+08:42:45.578 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �߱��� ��ü(GB18030) ���� ���: GB18030
+08:42:45.584 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- �߱��� ��ü(Big5) ���� ���: Big5
+08:42:45.611 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- 
+
+{
+  "header" : {
+    "resultCode" : 200,
+    "resultMessage" : "SUCCESS"
+  },
+  "data" : {
+    "pagination" : {
+      "page" : 1,
+      "total" : 150
+    },
+    "items" : [ {
+      "id" : "LB-1001",
+      "status" : "�ȳ��ϼ���."
+    }, {
+      "id" : "LB-1002",
+      "status" : "�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�."
+    }, {
+      "id" : "LB-1003",
+      "status" : "��, �� ���� Ư���� ���ڵ� �����غ��ϴ�."
+    } ]
+  }
+}
+
+
+08:42:45.612 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-8
+08:42:45.615 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:42:45.615 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:42:45.639 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:42:45.644 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16
+08:42:45.645 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [-2, -1, 0, 123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104]
+08:42:45.645 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16
+08:42:45.647 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:42:45.648 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16BE
+08:42:45.648 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [0, 123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104, 0, 101]
+08:42:45.649 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16BE
+08:42:45.650 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:42:45.652 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: UTF-16LE
+08:42:45.652 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 0, 13, 0, 10, 0, 32, 0, 32, 0, 34, 0, 104, 0, 101, 0]
+08:42:45.652 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-16LE
+08:42:45.654 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:42:45.655 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: US-ASCII
+08:42:45.655 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:42:45.655 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:42:45.657 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ?? ??? ??? ??????.}, {id=LB-1002, status=??? ?? ??? ?? ??????.}, {id=LB-1001, status=?????.}]
+
+
+08:42:45.658 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: ISO-8859-1
+08:42:45.659 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:42:45.659 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: UTF-8
+08:42:45.660 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ?? ??? ??? ??????.}, {id=LB-1002, status=??? ?? ??? ?? ??????.}, {id=LB-1001, status=?????.}]
+
+
+08:42:45.662 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: EUC-KR
+08:42:45.664 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:42:45.664 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: x-windows-949
+08:42:45.665 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=?, ? ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+08:42:45.667 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- charsetName: MS949
+08:42:45.667 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- responseBytes[0:16]: [123, 13, 10, 32, 32, 34, 104, 101, 97, 100, 101, 114, 34, 32, 58, 32]
+08:42:45.667 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- detected: x-windows-949
+08:42:45.668 [main] INFO ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest -- Response items: [{id=LB-1003, status=��, �� ���� Ư���� ���ڵ� �����غ��ϴ�.}, {id=LB-1002, status=�̰��� �ѱ� ���ڵ� ���� �׽�Ʈ�Դϴ�.}, {id=LB-1001, status=�ȳ��ϼ���.}]
+
+
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.339 s -- in ut.com.atsoft.jira.plugin.logviewer.utils.CharsetPrioritizerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jira:9.11.1:post-process-resources (default-post-process-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- jira:9.11.1:validate-banned-dependencies (default-validate-banned-dependencies) @ jira-log-viewer-plugin ---
+[INFO] Dependencies excluded from banning: []
+[INFO] Scanning using platform version range: '[0,)'
+[INFO] Skipping Rule Enforcement.
+[INFO] No banned dependencies found!
+[INFO] 
+[INFO] --- jira:9.11.1:copy-bundled-dependencies (default-copy-bundled-dependencies) @ jira-log-viewer-plugin ---
+[WARNING] Extracting your plugin's dependencies caused the following file(s) to overwrite each other:
+[WARNING] -- META-INF\versions\9\module-info.class from [kotlin-stdlib-2.2.20-jar, kotlin-stdlib-jdk7-2.2.20-jar, kotlin-stdlib-jdk8-2.2.20-jar]
+[WARNING] To prevent this, set <extractDependencies> to false in your AMPS configuration
+[INFO] 
+[INFO] --- jira:9.11.1:copy-test-bundled-dependencies (default-copy-test-bundled-dependencies) @ jira-log-viewer-plugin ---
+[INFO] Copying jira-api-10.7.4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jira-api-10.7.4.jar
+[INFO] Copying atlassian-annotations-5.1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-annotations-5.1.1.jar
+[INFO] Copying entityengine-share-4.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\entityengine-share-4.0.2.jar
+[INFO] Copying xercesImpl-2.12.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\xercesImpl-2.12.2.jar
+[INFO] Copying xml-apis-1.4.01.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\xml-apis-1.4.01.jar
+[INFO] Copying entityengine-4.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\entityengine-4.0.2.jar
+[INFO] Copying jakarta.transaction-api-1.3.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.transaction-api-1.3.3.jar
+[INFO] Copying atlassian-collectors-util-1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-collectors-util-1.1.jar
+[INFO] Copying webwork-1.4-atlassian-31.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\webwork-1.4-atlassian-31.jar
+[INFO] Copying atlassian-html-encoder-1.4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-html-encoder-1.4.jar
+[INFO] Copying pell-multipart-request-1.31.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\pell-multipart-request-1.31.0.jar
+[INFO] Copying atlassian-core-logging-9.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-core-logging-9.0.0.jar
+[INFO] Copying atlassian-core-user-9.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-core-user-9.0.0.jar
+[INFO] Copying atlassian-core-9.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-core-9.0.0.jar
+[INFO] Copying atlassian-core-thumbnail-9.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-core-thumbnail-9.0.0.jar
+[INFO] Copying imageio-core-3.8.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\imageio-core-3.8.2.jar
+[INFO] Copying common-lang-3.8.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\common-lang-3.8.2.jar
+[INFO] Copying common-io-3.8.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\common-io-3.8.2.jar
+[INFO] Copying common-image-3.8.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\common-image-3.8.2.jar
+[INFO] Copying atlassian-extras-3.4.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-extras-3.4.6.jar
+[INFO] Copying commons-codec-1.11.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-codec-1.11.jar
+[INFO] Copying atlassian-extras-key-manager-3.4.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-extras-key-manager-3.4.6.jar
+[INFO] Copying atlassian-extras-common-3.4.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-extras-common-3.4.6.jar
+[INFO] Copying atlassian-extras-api-3.4.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-extras-api-3.4.6.jar
+[INFO] Copying atlassian-velocity-1.4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-velocity-1.4.jar
+[INFO] Copying commons-text-1.9.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-text-1.9.jar
+[INFO] Copying oscore-2.2.7-atlassian-1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\oscore-2.2.7-atlassian-1.jar
+[INFO] Copying velocity-1.6.4-atlassian-39.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\velocity-1.6.4-atlassian-39.jar
+[INFO] Copying commons-collections-3.2.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-collections-3.2.2.jar
+[INFO] Copying osworkflow-2.9.0-atlassian-1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\osworkflow-2.9.0-atlassian-1.jar
+[INFO] Copying propertyset-1.5.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\propertyset-1.5.jar
+[INFO] Copying atlassian-cache-api-7.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-cache-api-7.0.1.jar
+[INFO] Copying atlassian-instrumentation-core-4.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-instrumentation-core-4.0.0.jar
+[INFO] Copying atlassian-util-concurrent-4.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-util-concurrent-4.0.1.jar
+[INFO] Copying jsr305-3.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jsr305-3.0.2.jar
+[INFO] Copying beehive-api-6.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\beehive-api-6.0.0.jar
+[INFO] Copying atlassian-tenancy-api-4.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-tenancy-api-4.0.1.jar
+[INFO] Copying atlassian-event-4.0.5.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-event-4.0.5.jar
+[INFO] Copying upgrade-task-framework-api-2.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\upgrade-task-framework-api-2.0.2.jar
+[INFO] Copying embedded-crowd-api-6.2.4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\embedded-crowd-api-6.2.4.jar
+[INFO] Copying guava-33.2.1-jre.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\guava-33.2.1-jre.jar
+[INFO] Copying failureaccess-1.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\failureaccess-1.0.2.jar
+[INFO] Copying listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar
+[INFO] Copying checker-qual-3.42.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\checker-qual-3.42.0.jar
+[INFO] Copying error_prone_annotations-2.26.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\error_prone_annotations-2.26.1.jar
+[INFO] Copying j2objc-annotations-3.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\j2objc-annotations-3.0.0.jar
+[INFO] Copying fugue-6.1.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\fugue-6.1.2.jar
+[INFO] Copying jackson-annotations-2.17.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jackson-annotations-2.17.3.jar
+[INFO] Copying jackson-databind-2.17.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jackson-databind-2.17.3.jar
+[INFO] Copying jackson-core-2.17.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jackson-core-2.17.3.jar
+[INFO] Copying swagger-annotations-2.2.21.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\swagger-annotations-2.2.21.jar
+[INFO] Copying jakarta.mail-1.6.8.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.mail-1.6.8.jar
+[INFO] Copying jakarta.activation-1.2.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.activation-1.2.1.jar
+[INFO] Copying atlassian-mail-7.0.7.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-mail-7.0.7.jar
+[INFO] Copying jakarta.mail-api-1.6.7.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.mail-api-1.6.7.jar
+[INFO] Copying jakarta.activation-api-1.2.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.activation-api-1.2.2.jar
+[INFO] Copying oro-2.0.8.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\oro-2.0.8.jar
+[INFO] Copying applinks-api-10.2.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\applinks-api-10.2.3.jar
+[INFO] Copying closure-compiler-unshaded-v20181008.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\closure-compiler-unshaded-v20181008.jar
+[INFO] Copying closure-compiler-externs-v20181008.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\closure-compiler-externs-v20181008.jar
+[INFO] Copying args4j-2.0.26.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\args4j-2.0.26.jar
+[INFO] Copying jsinterop-annotations-1.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jsinterop-annotations-1.0.0.jar
+[INFO] Copying protobuf-java-3.25.5.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\protobuf-java-3.25.5.jar
+[INFO] Copying velocity-htmlsafe-5.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\velocity-htmlsafe-5.0.1.jar
+[INFO] Copying atlassian-plugins-api-8.1.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-plugins-api-8.1.2.jar
+[INFO] Copying atlassian-plugins-webfragment-api-7.2.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-plugins-webfragment-api-7.2.0.jar
+[INFO] Copying atlassian-plugin-point-safety-1.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-plugin-point-safety-1.0.0.jar
+[INFO] Copying jfreechart-1.0.13.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jfreechart-1.0.13.jar
+[INFO] Copying atlassian-plugins-webresource-api-7.3.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-plugins-webresource-api-7.3.0.jar
+[INFO] Copying jcommon-1.0.8.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jcommon-1.0.8.jar
+[INFO] Copying sal-api-6.0.5.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\sal-api-6.0.5.jar
+[INFO] Copying atlassian-gadgets-api-9.0.30.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-gadgets-api-9.0.30.jar
+[INFO] Copying atlassian-johnson-core-5.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-johnson-core-5.0.0.jar
+[INFO] Copying joda-time-2.12.7.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\joda-time-2.12.7.jar
+[INFO] Copying commons-lang3-3.18.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-lang3-3.18.0.jar
+[INFO] Copying commons-io-2.18.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-io-2.18.0.jar
+[INFO] Copying log4j-1.2-api-2.20.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\log4j-1.2-api-2.20.0.jar
+[INFO] Copying log4j-api-2.20.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\log4j-api-2.20.0.jar
+[INFO] Copying atlassian-profiling-5.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-profiling-5.0.1.jar
+[INFO] Copying atlassian-scheduler-api-5.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-scheduler-api-5.0.1.jar
+[INFO] Copying analytics-api-9.2.7.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\analytics-api-9.2.7.jar
+[INFO] Copying atlassian-application-api-3.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-application-api-3.0.1.jar
+[INFO] Copying jakarta.validation-api-2.0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.validation-api-2.0.2.jar
+[INFO] Copying lucene-extras-7.3.1-atlassian-4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\lucene-extras-7.3.1-atlassian-4.jar
+[INFO] Copying commons-beanutils-1.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\commons-beanutils-1.11.0.jar
+[INFO] Copying atlassian-whitelist-api-plugin-6.1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-whitelist-api-plugin-6.1.1.jar
+[INFO] Copying atlassian-webhooks-api-8.1.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-webhooks-api-8.1.6.jar
+[INFO] Copying atlassian-webhooks-spi-8.1.6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-webhooks-spi-8.1.6.jar
+[INFO] Copying gson-2.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\gson-2.11.0.jar
+[INFO] Copying atlassian-theme-api-2.0.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-theme-api-2.0.0.jar
+[INFO] Copying junit-jupiter-5.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-jupiter-5.11.0.jar
+[INFO] Copying junit-jupiter-api-5.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-jupiter-api-5.11.0.jar
+[INFO] Copying opentest4j-1.3.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\opentest4j-1.3.0.jar
+[INFO] Copying junit-platform-commons-1.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-platform-commons-1.11.0.jar
+[INFO] Copying apiguardian-api-1.1.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\apiguardian-api-1.1.2.jar
+[INFO] Copying junit-jupiter-params-5.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-jupiter-params-5.11.0.jar
+[INFO] Copying junit-jupiter-engine-5.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-jupiter-engine-5.11.0.jar
+[INFO] Copying junit-platform-engine-1.11.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-platform-engine-1.11.0.jar
+[INFO] Copying mockito-core-5.12.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\mockito-core-5.12.0.jar
+[INFO] Copying byte-buddy-1.14.15.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\byte-buddy-1.14.15.jar
+[INFO] Copying byte-buddy-agent-1.14.15.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\byte-buddy-agent-1.14.15.jar
+[INFO] Copying objenesis-3.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\objenesis-3.3.jar
+[INFO] Copying mockito-junit-jupiter-5.12.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\mockito-junit-jupiter-5.12.0.jar
+[INFO] Copying jira-tests-10.7.4.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\jira-tests-10.7.4.jar
+[INFO] Copying junit-vintage-engine-5.7.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\junit-vintage-engine-5.7.0.jar
+[INFO] Copying hamcrest-core-1.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\hamcrest-core-1.3.jar
+[INFO] Copying hamcrest-library-1.3.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\hamcrest-library-1.3.jar
+[INFO] Copying mockobjects-jdk1.3-j2ee1.3-0.07.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\mockobjects-jdk1.3-j2ee1.3-0.07.jar
+[INFO] Copying inception-1.25.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\inception-1.25.jar
+[INFO] Copying modz-detector-0.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\modz-detector-0.2.jar
+[INFO] Copying atlassian-spring-scanner-annotation-5.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-spring-scanner-annotation-5.0.1.jar
+[INFO] Copying jakarta.inject-api-2.0.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.inject-api-2.0.1.jar
+[INFO] Copying atlassian-plugins-osgi-testrunner-2.0.16.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\atlassian-plugins-osgi-testrunner-2.0.16.jar
+[INFO] Copying jackson-core-asl-1.9.14-atlassian-6.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\jackson-core-asl-1.9.14-atlassian-6.jar
+[INFO] Copying wink-client-1.1.3-incubating.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\wink-client-1.1.3-incubating.jar
+[INFO] Copying wink-common-1.1.3-incubating.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\wink-common-1.1.3-incubating.jar
+[INFO] Copying geronimo-annotation_1.1_spec-1.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\geronimo-annotation_1.1_spec-1.0.jar
+[INFO] Copying jaxb-api-2.2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\jaxb-api-2.2.jar
+[INFO] Copying stax-api-1.0-2.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\stax-api-1.0-2.jar
+[INFO] Copying jaxb-impl-2.2.1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\jaxb-impl-2.2.1.1.jar
+[INFO] Copying activation-1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\activation-1.1.jar
+[INFO] Copying upm-api-6.5.7.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\upm-api-6.5.7.jar
+[INFO] Copying jsr311-api-1.1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\jsr311-api-1.1.1.jar
+[INFO] Copying javax.servlet-api-3.1.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\javax.servlet-api-3.1.0.jar
+[INFO] Copying atlassian-template-renderer-api-7.1.1.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\atlassian-template-renderer-api-7.1.1.jar
+[INFO] Copying jakarta.ws.rs-api-3.1.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\jakarta.ws.rs-api-3.1.0.jar
+[INFO] Copying slf4j-api-2.0.16.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\slf4j-api-2.0.16.jar
+[INFO] Copying lombok-1.18.42.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\provided\lombok-1.18.42.jar
+[INFO] Copying logback-classic-1.5.23.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\logback-classic-1.5.23.jar
+[INFO] Copying logback-core-1.5.23.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\logback-core-1.5.23.jar
+[INFO] Copying juniversalchardet-2.4.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\juniversalchardet-2.4.0.jar
+[INFO] Copying lucene-core-8.10.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\lucene-core-8.10.0.jar
+[INFO] Copying kotlin-stdlib-jdk8-2.2.20.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\kotlin-stdlib-jdk8-2.2.20.jar
+[INFO] Copying kotlin-stdlib-2.2.20.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\kotlin-stdlib-2.2.20.jar
+[INFO] Copying annotations-13.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\annotations-13.0.jar
+[INFO] Copying kotlin-stdlib-jdk7-2.2.20.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\kotlin-stdlib-jdk7-2.2.20.jar
+[INFO] Copying kotlin-test-junit-2.2.20.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\kotlin-test-junit-2.2.20.jar
+[INFO] Copying kotlin-test-2.2.20.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\test\kotlin-test-2.2.20.jar
+[INFO] Copying kotlin-logging-jvm-3.0.5.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\kotlin-logging-jvm-3.0.5.jar
+[INFO] Copying kotlin-stdlib-common-1.8.0.jar to D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\testlibs\compile\kotlin-stdlib-common-1.8.0.jar
+[INFO] 
+[INFO] --- jira:9.11.1:copy-fe-bundled-metadata (default-copy-fe-bundled-metadata) @ jira-log-viewer-plugin ---
+[INFO] Copying bundled frontend metadata
+[INFO] 
+[INFO] --- jira:9.11.1:copy-fe-module-manifests (default-copy-fe-module-manifests) @ jira-log-viewer-plugin ---
+[INFO] There were no frontend module manifest files specified to include in the artifact
+[INFO] 
+[INFO] --- jira:9.11.1:report-fe-manifest-associations (default-report-fe-manifest-associations) @ jira-log-viewer-plugin ---
+[INFO] There were no frontend manifest associations found. Skipping generating final mapping.
+[INFO] There were no frontend dependency declarations found. Skipping generating final mapping.
+[INFO] 
+[INFO] --- jira:9.11.1:generate-manifest (default-generate-manifest) @ jira-log-viewer-plugin ---
+[INFO] Generating a manifest for this plugin
+[INFO] using maven-bundle-plugin v5.1.9
+[INFO] No MANIFEST.MF file found, generating manifest.
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Unused Import-Package instructions: [org.springframework.osgi.*, org.eclipse.gemini.blueprint.*, javax.inject*, javax.ws.rs*, org.mozilla.universalchardet*] 
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.api,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.helper,  has 2,  private references [kotlin, kotlin.jvm.internal]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.impl,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.servlet,  has 1,  private references [kotlin]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Export com.atsoft.jira.plugin.logviewer.utils,  has 3,  private references [kotlin, kotlin.jvm, mu]
+[WARNING] Manifest com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT : Classes found in the wrong directory: {META-INF/versions/9/module-info.class=module-info}
+[INFO] Writing manifest: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\classes\META-INF\MANIFEST.MF
+[INFO] 
+[INFO] --- jira:9.11.1:generate-test-manifest (default-generate-test-manifest) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- jira:9.11.1:validate-manifest (default-validate-manifest) @ jira-log-viewer-plugin ---
+[INFO] Manifest found, validating...
+[INFO] Manifest validated
+[INFO] 
+[INFO] --- jira:9.11.1:jar (default-jar) @ jira-log-viewer-plugin ---
+[INFO] Building jar: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\jira-log-viewer-plugin-1.0.0-SNAPSHOT.jar
+[INFO] 
+[INFO] --- jira:9.11.1:generate-obr-artifact (default-generate-obr-artifact) @ jira-log-viewer-plugin ---
+[INFO] the file name is: jira-log-viewer-plugin-1.0.0-SNAPSHOT
+[INFO] using maven-bundle-plugin v5.1.9
+[INFO] Writing OBR metadata
+[INFO] Installing jira-log-viewer-plugin-1.0.0-SNAPSHOT.jar
+[INFO] Writing OBR metadata
+[INFO] Building jar: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\jira-log-viewer-plugin-1.0.0-SNAPSHOT.obr
+[INFO] 
+[INFO] --- jira:9.11.1:validate-test-manifest (default-validate-test-manifest) @ jira-log-viewer-plugin ---
+[INFO] Manifest found, validating...
+[INFO] Manifest validated
+[INFO] 
+[INFO] --- jira:9.11.1:test-jar (default-test-jar) @ jira-log-viewer-plugin ---
+[INFO] found Test: it.com.atsoft.jira.plugin.logviewer.MyComponentWiredTest, adding to test-classes/META-INF/spring/wired-test-components.xml...
+[WARNING]  Parameter 'finalName' is read-only, must not be used in configuration
+[INFO] Building jar: D:\DevHome\projects\jira-log-viewer\plugin\target\10.7.4\jira-log-viewer-plugin-1.0.0-SNAPSHOT-tests.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  26.993 s
+[INFO] Finished at: 2026-01-04T08:43:05+09:00
+[INFO] ------------------------------------------------------------------------
