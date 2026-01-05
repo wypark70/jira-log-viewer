@@ -18,46 +18,46 @@ class ProxyResource {
         const val EXTERNAL_API_URL = "https://api.example.com/data"
     }
 
-    private val httpClient: HttpClient = HttpClient.newHttpClient()
+    private val httpClient = HttpClient.newHttpClient()
 
-    private fun forwardRequest(request: HttpRequest): Response {
-        val response = httpClient.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8))
-
-        val builder = Response.status(response.statusCode())
-            .entity(response.body())
-            .header(CONTENT_TYPE, APPLICATION_JSON_UTF8)
-
-        response.headers().map().forEach { (key, values) ->
-            values.forEach { value -> builder.header(key, value) }
+    private fun forwardRequest(request: HttpRequest): Response =
+        httpClient.send(request, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8)).let { resp ->
+            Response.status(resp.statusCode())
+                .entity(resp.body())
+                .apply {
+                    header(CONTENT_TYPE, APPLICATION_JSON_UTF8)
+                    resp.headers().map().forEach { (key, values) ->
+                        values.forEach { header(key, it) }
+                    }
+                }
+                .build()
         }
 
-        return builder.build()
-    }
-
+    /**
+     * Forwards external GET request with JSON headers
+     */
     @GET
     @Produces(APPLICATION_JSON_UTF8)
-    fun callExternalApiGet(): Response {
-        val request = HttpRequest.newBuilder()
+    fun get(): Response =
+        HttpRequest.newBuilder()
             .uri(URI.create(EXTERNAL_API_URL))
             .GET()
             .header(ACCEPT, APPLICATION_JSON_UTF8)
             .build()
+            .let(::forwardRequest)
 
-        return forwardRequest(request)
-    }
-
+    /**
+     * Forwards external POST request with JSON body
+     */
     @POST
     @Consumes(APPLICATION_JSON_UTF8)
     @Produces(APPLICATION_JSON_UTF8)
-    fun callExternalApiPost(body: String): Response {
-        val request = HttpRequest.newBuilder()
+    fun post(body: String): Response =
+        HttpRequest.newBuilder()
             .uri(URI.create(EXTERNAL_API_URL))
             .POST(HttpRequest.BodyPublishers.ofString(body, StandardCharsets.UTF_8))
             .header(CONTENT_TYPE, APPLICATION_JSON_UTF8)
             .header(ACCEPT, APPLICATION_JSON_UTF8)
             .build()
-
-        return forwardRequest(request)
-    }
-
+            .let(::forwardRequest)
 }
