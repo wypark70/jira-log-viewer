@@ -51,9 +51,8 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.body()).thenReturn(expectedBody)
         whenever(mockHttpResponse.headers()).thenReturn(
             java.net.http.HttpHeaders.of(
-                mapOf("X-Custom-Header" to listOf("custom-value")),
-                { _, _ -> true }
-            )
+                mapOf("X-Custom-Header" to listOf("custom-value"))
+            ) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -89,9 +88,8 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.body()).thenReturn(expectedResponseBody)
         whenever(mockHttpResponse.headers()).thenReturn(
             java.net.http.HttpHeaders.of(
-                mapOf("Location" to listOf("/api/items/123")),
-                { _, _ -> true }
-            )
+                mapOf("Location" to listOf("/api/items/123"))
+            ) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -104,7 +102,7 @@ internal class ProxyResourceTest {
         assertEquals(expectedStatusCode, response.status)
         assertEquals(expectedResponseBody, response.entity)
 
-        // Verify the request was made with correct body
+        // Verify the request was made with the correct body
         val requestCaptor = argumentCaptor<HttpRequest>()
         verify(mockHttpClient).send(requestCaptor.capture(), any<HttpResponse.BodyHandler<String>>())
 
@@ -127,7 +125,7 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.statusCode()).thenReturn(expectedStatusCode)
         whenever(mockHttpResponse.body()).thenReturn(expectedBody)
         whenever(mockHttpResponse.headers()).thenReturn(
-            java.net.http.HttpHeaders.of(emptyMap(), { _, _ -> true })
+            java.net.http.HttpHeaders.of(emptyMap()) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -152,7 +150,7 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.statusCode()).thenReturn(expectedStatusCode)
         whenever(mockHttpResponse.body()).thenReturn(expectedBody)
         whenever(mockHttpResponse.headers()).thenReturn(
-            java.net.http.HttpHeaders.of(emptyMap(), { _, _ -> true })
+            java.net.http.HttpHeaders.of(emptyMap()) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -180,9 +178,8 @@ internal class ProxyResourceTest {
                 mapOf(
                     "X-Custom-Header" to listOf("value1", "value2"),
                     "X-Another-Header" to listOf("single-value")
-                ),
-                { _, _ -> true }
-            )
+                )
+            ) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -195,7 +192,7 @@ internal class ProxyResourceTest {
         assertEquals(expectedStatusCode, response.status)
         assertNotNull(response.metadata)
 
-        // Verify Content-Type header is set
+        // Verify the Content-Type header is set
         val contentTypeHeaders = response.metadata["Content-Type"]
         assertNotNull(contentTypeHeaders)
         assertTrue(contentTypeHeaders.toString().contains(ProxyResource.APPLICATION_JSON_UTF8))
@@ -212,7 +209,7 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.statusCode()).thenReturn(expectedStatusCode)
         whenever(mockHttpResponse.body()).thenReturn(expectedResponseBody)
         whenever(mockHttpResponse.headers()).thenReturn(
-            java.net.http.HttpHeaders.of(emptyMap(), { _, _ -> true })
+            java.net.http.HttpHeaders.of(emptyMap()) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -236,7 +233,7 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.statusCode()).thenReturn(expectedStatusCode)
         whenever(mockHttpResponse.body()).thenReturn(koreanBody)
         whenever(mockHttpResponse.headers()).thenReturn(
-            java.net.http.HttpHeaders.of(emptyMap(), { _, _ -> true })
+            java.net.http.HttpHeaders.of(emptyMap()) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
@@ -267,7 +264,7 @@ internal class ProxyResourceTest {
         whenever(mockHttpResponse.statusCode()).thenReturn(expectedStatusCode)
         whenever(mockHttpResponse.body()).thenReturn(expectedBody)
         whenever(mockHttpResponse.headers()).thenReturn(
-            java.net.http.HttpHeaders.of(emptyMap(), { _, _ -> true })
+            java.net.http.HttpHeaders.of(emptyMap()) { _, _ -> true }
         )
 
         whenever(mockHttpClient.send(any(), any<HttpResponse.BodyHandler<String>>()))
