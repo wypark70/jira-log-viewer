@@ -1,0 +1,90 @@
+지라(Jira) Data Center 환경에서 관리자 권한으로 동작하면서 실제 수행자 이력을 남기는 커스텀 플러그인 개발 내용을 핵심만 추려 정리해 드립니다.
+1. 지라 플러그인 개발 핵심 개념
+지라 커스텀 플러그인은 OSGi 번들 형태로 지라 내부 JVM에서 실행됩니다. 일반적인 REST API 호출과 달리, 지라 내부의 모든 서비스 객체에 직접 접근할 수 있는 강력한 권한을 가집니다.
+핵심 컴포넌트
+ * ComponentAccessor: 지라의 모든 서비스(IssueService, UserManager 등)를 가져오는 게이트웨이입니다.
+ * JiraAuthenticationContext: "현재 이 스레드에서 누가 작업을 하고 있는가?"를 결정하는 핵심 객체입니다. 이 값을 프로그래밍 방식으로 교체하는 것이 User Impersonation의 핵심입니다.
+ * IssueService: 이슈의 상태를 변경(Transition)할 때 권한 체크, 워크플로우 검증, 실제 저장을 담당합니다.
+2. 개발 환경 설정 (Prerequisites)
+ * Atlassian SDK 설치: atlas-create-jira-plugin 명령어를 사용하기 위해 필요합니다.
+ * Java 8 또는 11: Jira 8.x/9.x 버전 개발에 필요합니다.
+ * Maven: 의존성 관리 및 빌드 도구입니다.
+3. 최종 예제 코드 (Java)
+이 예제는 외부에서 REST 호출을 받으면, 관리자 권한으로 내부 로직을 실행하되 히스토리에는 지정된 사용자(targetUser)가 남도록 구현된 코드입니다.
+package com.example.jira.rest;
+
+import com.atlassian.jira.bc.issue.IssueService;
+import com.atlassian.jira.component.ComponentAccessor;
+import com.atlassian.jira.issue.Issue;
+import com.atlassian.jira.issue.IssueInputParameters;
+import com.atlassian.jira.security.JiraAuthenticationContext;
+import com.atlassian.jira.user.ApplicationUser;
+import com.atlassian.jira.user.util.UserManager;
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+@Path("/action")
+public class ImpersonateResource {
+
+    @POST
+    @Path("/transition")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response performTransition(@QueryParam("issueKey") String issueKey, 
+                                      @QueryParam("targetUser") String targetUserKey,
+                                      @QueryParam("actionId") int actionId) {
+
+        // 1. 필요한 내부 서비스 획득
+        IssueService issueService = ComponentAccessor.getIssueService();
+        UserManager userManager = ComponentAccessor.getUserManager();
+        JiraAuthenticationContext authContext = ComponentAccessor.getJiraAuthenticationContext();
+
+        // 2. 대상 이슈 및 위임할 사용자 객체 획득
+        Issue issue = ComponentAccessor.getIssueManager().getIssueObject(issueKey);
+        ApplicationUser realUser = userManager.getUserByKey(targetUserKey);
+        ApplicationUser adminUser = authContext.getLoggedInUser(); // 현재 호출자(관리자)
+
+        if (issue == null || realUser == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("Issue or User not found").build();
+        }
+
+        // 3. [핵심] 사용자 컨텍스트 스위칭 (User Impersonation)
+        // 이 시점부터 모든 지라 내부 기록은 realUser가 수행한 것으로 간주됩니다.
+        authContext.setLoggedInUser(realUser);
+
+        try {
+            // 4. 상태 변경 프로세스 진행
+            IssueInputParameters parameters = issueService.newIssueInputParameters();
+            
+            // 워크플로우 전이 가능 여부 검증
+            IssueService.TransitionValidationResult validationResult = 
+                issueService.validateTransition(realUser, issue.getId(), actionId, parameters);
+
+            if (validationResult.isValid()) {
+                // 실제 상태 변경 실행
+                issueService.transition(realUser, validationResult);
+                return Response.ok("Status changed as user: " + realUser.getName()).build();
+            } else {
+                return Response.status(Response.Status.BAD_REQUEST)
+                               .entity(validationResult.getErrorCollection().toString()).build();
+            }
+        } catch (Exception e) {
+            return Response.serverError().entity(e.getMessage()).build();
+        } finally {
+            // 5. 매우 중요: 원래 관리자 계정으로 세션 복구
+            authContext.setLoggedInUser(adminUser);
+        }
+    }
+}
+
+4. 플러그인 배포 및 테스트 절차
+ * 빌드: 터미널에서 atlas-package 명령어를 실행하여 .jar 파일을 생성합니다.
+ * 설치: Jira 관리자 페이지(Manage apps)에서 생성된 jar 파일을 업로드합니다.
+ * 호출: 외부 시스템이나 브라우저에서 아래와 같이 호출합니다.
+   * URL: http://your-jira-domain/rest/example/1.0/action/transition?issueKey=PROJ-1&targetUser=hgdong&actionId=31
+   * 결과: PROJ-1 이슈의 상태가 바뀌며, History 탭에는 'hgdong' 사용자가 수정한 것으로 남습니다.
+5. 요약 및 주의사항
+ * 권한 체크: realUser가 해당 프로젝트에서 상태를 변경할 권한이 없다면 validationResult에서 에러가 발생합니다. 권한이 없는 유저의 이름으로 강제로 기록하려면 좀 더 복잡한 저수준(Manager 레벨) API를 써야 합니다.
+ * 스레드 관리: finally 블록에서 setLoggedInUser(adminUser)를 빼먹으면 해당 스레드가 재사용될 때 보안 사고가 날 수 있으므로 반드시 포함해야 합니다.
+이제 이 코드를 바탕으로 개발을 시작해 보세요. 플러그인의 프로젝트 구조(pom.xml 등)나 아틀라시안 SDK 설치 단계에 대해 더 구체적인 설명이 필요하신가요?
