@@ -2,6 +2,7 @@ Confluence Data Center 환경에서 **"일반 사용자용 앱(User App)"**과 *
 이 가이드를 따라가면 하나의 플러그인 프로젝트 안에서 두 개의 독립적인 React 앱이 돌아가는 구조가 완성됩니다.
 🏗️ 1. 전체 프로젝트 구조 (Directory Structure)
 Java와 React가 공존하는 구조입니다. frontend 폴더 안에서 앱이 두 갈래로 나뉘는 것이 핵심입니다.
+```tree
 my-confluence-plugin/
 ├── pom.xml                       # [Maven] 빌드 자동화 설정
 ├── src/
@@ -25,11 +26,12 @@ my-confluence-plugin/
         │       ├── index.js      # Entry Point
         │       └── App.js        # React Router
         └── components/           # 공통 컴포넌트
-
+```
 🎨 2. Frontend 설정 (React & Webpack)
 두 개의 JS 번들을 만들어내기 위한 설정입니다.
 2-1. frontend/webpack.config.js
 entry를 객체로 정의하여 두 개의 번들을 생성합니다.
+```js
 const path = require('path');
 
 module.exports = {
@@ -54,10 +56,11 @@ module.exports = {
     ]
   }
 };
-
+```
 2-2. React Entry Points
 각 앱은 서로 다른 DOM ID(root-user vs root-admin)에 렌더링됩니다.
 User App (src/apps/user/index.js):
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@atlaskit/button';
@@ -73,8 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root-user'); // ID 주의
   if (root) ReactDOM.render(<UserApp />, root);
 });
-
+```
 Admin App (src/apps/admin/index.js):
+```js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@atlaskit/button';
@@ -90,10 +94,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root-admin'); // ID 주의
   if (root) ReactDOM.render(<AdminApp />, root);
 });
+```
 
 🔗 3. Backend 통합 (XML & Template)
 생성된 두 개의 JS 파일을 각기 다른 URL에서 로드하도록 연결합니다.
 3-1. atlassian-plugin.xml
+```xml
 <atlassian-plugin key="${atlassian.plugin.key}" plugins-version="2" name="${project.name}">
 
     <web-resource key="res-user" name="User Resources">
@@ -125,9 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
     <rest key="my-rest" path="/myapp" version="1.0"/>
 
 </atlassian-plugin>
-
+```
 3-2. Velocity Templates (HTML 껍데기)
 /templates/user-view.vm
+```vm
 <html>
 <head>
     <title>User Dashboard</title>
@@ -148,9 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
 <body>
     <div id="root-admin"></div> </body>
 </html>
-
+```
 3-3. Java Action (ViewAction.java)
 단순히 뷰만 연결해주면 되므로 하나로 공유해도 됩니다.
+```java
 package com.example;
 import com.atlassian.confluence.core.ConfluenceActionSupport;
 
@@ -160,9 +168,10 @@ public class ViewAction extends ConfluenceActionSupport {
         return SUCCESS; // XML에 정의된 vm 파일 렌더링
     }
 }
-
+```
 📡 4. REST API (데이터 통신)
 두 앱이 공통으로 혹은 각각 사용할 데이터를 제공합니다.
+```java
 package com.example.rest;
 
 import javax.ws.rs.*;
@@ -188,9 +197,10 @@ public class MyResource {
         return Response.ok("{\"type\":\"admin\", \"msg\":\"System Status OK\"}").build();
     }
 }
-
+```
 🤖 5. 빌드 자동화 (pom.xml)
 Maven 빌드 시 React 빌드까지 한 번에 끝내기 위한 설정입니다.
+```xml
 <plugin>
     <groupId>com.github.eirslett</groupId>
     <artifactId>frontend-maven-plugin</artifactId>
@@ -219,7 +229,7 @@ Maven 빌드 시 React 빌드까지 한 번에 끝내기 위한 설정입니다.
         </execution>
     </executions>
 </plugin>
-
+```
 🏁 최종 정리: 개발 및 실행 흐름
  * 개발: frontend 폴더에서 React 코드를 수정합니다.
  * 빌드: 터미널에서 atlas-package를 입력합니다.
