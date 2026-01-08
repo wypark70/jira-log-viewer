@@ -1,0 +1,79 @@
+
+> svelte5-vscode-editor@0.0.1 build
+> vite build
+
+[36mvite v7.2.7 [32mbuilding ssr environment for production...[36m[39m
+transforming...
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/search/FileSearchPanel.svelte:46:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+44: {#if searchStore.isFileSearchOpen}
+45:   <!-- 배경 오버레이 -->
+46:   <div
+          ^
+47:     class="fixed inset-0 bg-black bg-opacity-50 z-40"
+48:     onclick={() => searchStore.closeFileSearch()}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/search/FileSearchPanel.svelte:46:2 `<div>` with a click handler must have an ARIA role
+https://svelte.dev/e/a11y_no_static_element_interactions
+44: {#if searchStore.isFileSearchOpen}
+45:   <!-- 배경 오버레이 -->
+46:   <div
+          ^
+47:     class="fixed inset-0 bg-black bg-opacity-50 z-40"
+48:     onclick={() => searchStore.closeFileSearch()}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:28:2 Visible, non-interactive elements with a click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as `<button type="button">` or `<a>` might be more appropriate
+https://svelte.dev/e/a11y_click_events_have_key_events
+26: {#if settingsStore.isPanelOpen}
+27:   <!-- 배경 오버레이 -->
+28:   <div
+          ^
+29:     class="fixed inset-0 bg-black bg-opacity-50 z-40"
+30:     onclick={() => settingsStore.closePanel()}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:28:2 `<div>` with a click handler must have an ARIA role
+https://svelte.dev/e/a11y_no_static_element_interactions
+26: {#if settingsStore.isPanelOpen}
+27:   <!-- 배경 오버레이 -->
+28:   <div
+          ^
+29:     class="fixed inset-0 bg-black bg-opacity-50 z-40"
+30:     onclick={() => settingsStore.closePanel()}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:63:10 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+61:         <!-- 폰트 크기 -->
+62:         <div class="mb-4">
+63:           <label class="block text-sm mb-2">
+                      ^
+64:             폰트 크기: {settingsStore.fontSize}px
+65:           </label>
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:83:10 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+81:         <!-- 폰트 패밀리 -->
+82:         <div class="mb-4">
+83:           <label class="block text-sm mb-2">폰트 패밀리</label>
+                                                              ^
+84:           <select
+85:             value={settingsStore.fontFamily}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:97:10 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+ 95:         <!-- 줄바꿈 -->
+ 96:         <div class="mb-4">
+ 97:           <label class="block text-sm mb-2">줄바꿈</label>
+                                                            ^
+ 98:           <select
+ 99:             value={settingsStore.wordWrap}
+오후 8:00:24 [vite-plugin-svelte] src/lib/components/settings/SettingsPanel.svelte:141:10 A form label must be associated with a control
+https://svelte.dev/e/a11y_label_has_associated_control
+139: 
+140:         <div class="mb-4">
+141:           <label class="block text-sm mb-2">에디터 테마</label>
+                                                               ^
+142:           <select
+143:             value={settingsStore.editorTheme}
+[32m✓[39m 3795 modules transformed.
+✗ Build failed in 7.14s
+error during build:
+"monaco-editor" cannot be included in manualChunks because it is resolved as an external module by the "external" option or plugins.
+    at getRollupError (file:///D:/DevHome/projects/jira-log-viewer/svelte5/node_modules/rollup/dist/es/shared/parseAst.js:401:41)
+    at error (file:///D:/DevHome/projects/jira-log-viewer/svelte5/node_modules/rollup/dist/es/shared/parseAst.js:397:42)
+    at ModuleLoader.loadEntryModule (file:///D:/DevHome/projects/jira-log-viewer/svelte5/node_modules/rollup/dist/es/shared/node-entry.js:21617:20)
+    at async Promise.all (index 0)
+    at async Promise.all (index 0)
