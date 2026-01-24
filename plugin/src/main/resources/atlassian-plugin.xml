@@ -13,38 +13,12 @@
 
     <!-- add our web resources -->
     <web-resource key="jira-log-viewer-resources" name="jira-log-viewer Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
-
-        <resource type="download" name="jira-log-viewer.js" location="/assets/jira-log-viewer.js" />
-        <resource type="download" name="jira-log-viewer.css" location="/assets/jira-log-viewer.css" />
-        <resource type="download" name="images/" location="/images" />
-
-        <context>jira-log-viewer</context>
+        <directory>static</directory>
+        <resource type="download" name="jira-log-viewer.css" location="css/jira-log-viewer.css" />
     </web-resource>
 
-    <!-- Web Resource -->
-    <web-resource key="log-viewer-resources" name="Log Viewer Resources">
-        <dependency>com.atlassian.auiplugin:aui-experimental</dependency>
-        <resource type="download" name="logv-iewer.js" location="js/log-viewer.js" />
-    </web-resource>
-
-    <!-- WebWork Action -->
-    <webwork1 key="log-viewer-action" name="Log Viewer Action" class="java.lang.Object">
-        <actions>
-            <action name="com.atsoft.jira.plugin.logviewer.action.LogViewerAction"
-                alias="LogViewerAction">
-                <view name="input">/templates/log-viewer.vm</view>
-            </action>
-            <action name="com.atsoft.jira.plugin.logviewer.action.LogViewerConfigAction"
-                alias="LogViewerConfig">
-                <view name="input">/templates/log-viewer-config.vm</view>
-            </action>
-        </actions>
-    </webwork1>
-
-    <!-- REST Module -->
     <rest key="jira-log-viewer-rest" path="/logviewer" version="1.0">
         <package>com.atsoft.jira.plugin.logviewer.rest</package>
+        <security>authenticated</security>
     </rest>
-
 </atlassian-plugin>

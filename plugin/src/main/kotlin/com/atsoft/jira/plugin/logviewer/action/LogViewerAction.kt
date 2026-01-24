@@ -3,12 +3,8 @@ package com.atsoft.jira.plugin.logviewer.action
 import com.atlassian.jira.web.action.JiraWebActionSupport
 import com.atlassian.jira.security.request.SupportedMethods
 import com.atlassian.jira.security.request.RequestMethod
-import javax.inject.Inject
-import javax.inject.Named
-
-@Named
 @SupportedMethods(RequestMethod.GET)
-open class LogViewerAction @Inject constructor() : JiraWebActionSupport() {
+open class LogViewerAction() : JiraWebActionSupport() {
 
     val logs: List<String> = listOf(
         "2026-01-04 04:20 INFO Application started",

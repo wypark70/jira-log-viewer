@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test
 class MyComponentUnitTest {
     @Test
     fun testMyName() {
-        val component: MyPluginComponent = MyPluginComponentImpl(null)
+        val component: MyPluginComponent = MyPluginComponentImpl()
         Assertions.assertEquals("myComponent", component.name, "names do not match!")
     }
 }
