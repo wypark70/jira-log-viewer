@@ -4,7 +4,7 @@ import com.atlassian.jira.security.request.RequestMethod
 import com.atlassian.jira.security.request.SupportedMethods
 import com.atlassian.jira.web.action.JiraWebActionSupport
 import com.atsoft.jira.plugin.logviewer.service.LogViewerSettingsService
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 @SupportedMethods(RequestMethod.GET, RequestMethod.POST)
 open class LogViewerConfigAction @Inject constructor(

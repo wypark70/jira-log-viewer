@@ -4,7 +4,7 @@ import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport
 import com.atlassian.sal.api.pluginsettings.PluginSettingsFactory
 import com.atsoft.jira.plugin.logviewer.service.LogViewerSettingsService
 import org.springframework.stereotype.Component
-import javax.inject.Inject
+import jakarta.inject.Inject
 
 @Component // Spring 빈으로 등록 (필요 시)
 class LogViewerSettingsServiceImpl @Inject constructor(
