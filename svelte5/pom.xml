@@ -15,6 +15,10 @@
 
     <name>Jira Log Viewer Svelte5</name>
 
+    <properties>
+        <skipFrontend>false</skipFrontend>
+    </properties>
+
     <build>
         <resources>
             <resource>
@@ -27,6 +31,9 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>3.5.0</version>
+                <configuration>
+                    <skip>${skipFrontend}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <id>npm install</id>
@@ -35,9 +42,10 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <executable>npm</executable>
+                            <executable>cmd</executable>
                             <arguments>
-                                <argument>install</argument>
+                                <argument>/c</argument>
+                                <argument>if not exist node_modules npm install</argument>
                             </arguments>
                         </configuration>
                     </execution>
@@ -60,6 +68,9 @@
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>3.1.0</version>
+                <configuration>
+                    <skip>${skipFrontend}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <phase>generate-resources</phase>

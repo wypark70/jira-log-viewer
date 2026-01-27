@@ -1,0 +1,257 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.atsoft.jira.plugin:jira-log-viewer-plugin:atlassian-plugin:1.0.0-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 368, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Jira Log Viewer                                                    [pom]
+[INFO] Jira Log Viewer Svelte5                                            [jar]
+[INFO] Jira Log Viewer Plugin                                [atlassian-plugin]
+[INFO] 
+[INFO] ---------------< com.atsoft.jira.plugin:jira-log-viewer >---------------
+[INFO] Building Jira Log Viewer 1.0.0-SNAPSHOT                            [1/3]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-svelte5 >-----------
+[INFO] Building Jira Log Viewer Svelte5 1.0.0-SNAPSHOT                    [2/3]
+[INFO]   from svelte5\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- exec:3.5.0:exec (npm install) @ jira-log-viewer-svelte5 ---
+[INFO] 
+[INFO] --- exec:3.5.0:exec (npm build) @ jira-log-viewer-svelte5 ---
+
+> svelte5-vscode-editor@0.0.1 build
+> vite build
+
+vite v7.2.7 building ssr environment for production...
+transforming...
+✓ 3796 modules transformed.
+rendering chunks...
+vite v7.2.7 building client environment for production...
+transforming...
+✓ 4717 modules transformed.
+rendering chunks...
+computing gzip size...
+.svelte-kit/output/client/_app/version.json                                     0.03 kB │ gzip:   0.05 kB
+.svelte-kit/output/client/.vite/manifest.json                                  33.32 kB │ gzip:   3.39 kB
+.svelte-kit/output/client/_app/immutable/assets/codicon.Hscy-R9e.ttf           77.40 kB
+.svelte-kit/output/client/_app/immutable/workers/editor.worker-D4mAYA8q.js    209.97 kB
+.svelte-kit/output/client/_app/immutable/workers/json.worker-B-jIX4E_.js      337.93 kB
+.svelte-kit/output/client/_app/immutable/workers/html.worker-anahDe2c.js      647.36 kB
+.svelte-kit/output/client/_app/immutable/workers/css.worker-D_7QITJl.js       983.77 kB
+.svelte-kit/output/client/_app/immutable/workers/ts.worker-CXlM-Hmp.js      4,840.63 kB
+.svelte-kit/output/client/_app/immutable/assets/2.C0N4mvgY.css                  0.06 kB │ gzip:   0.08 kB
+.svelte-kit/output/client/_app/immutable/assets/editor.Bk9h4I0t.css           116.62 kB │ gzip:  18.89 kB
+.svelte-kit/output/client/_app/immutable/assets/0.DMyu3PD8.css                122.37 kB │ gzip:  17.25 kB
+.svelte-kit/output/client/_app/immutable/chunks/BS-1ahmZ.js                     0.04 kB │ gzip:   0.06 kB
+.svelte-kit/output/client/_app/immutable/entry/start.KOivmc5y.js                0.08 kB │ gzip:   0.09 kB
+.svelte-kit/output/client/_app/immutable/chunks/BWnOiHzF.js                     0.17 kB │ gzip:   0.16 kB
+.svelte-kit/output/client/_app/immutable/chunks/osNWoOv3.js                     0.30 kB │ gzip:   0.22 kB
+.svelte-kit/output/client/_app/immutable/nodes/0.DkeN95Cl.js                    0.39 kB │ gzip:   0.29 kB
+.svelte-kit/output/client/_app/immutable/chunks/BQir7PX_.js                     0.52 kB │ gzip:   0.33 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.DnyIcTSi.js                    0.59 kB │ gzip:   0.36 kB
+.svelte-kit/output/client/_app/immutable/chunks/1IWB1ccx.js                     0.71 kB │ gzip:   0.28 kB
+.svelte-kit/output/client/_app/immutable/chunks/D4zepWAB.js                     0.76 kB │ gzip:   0.41 kB
+.svelte-kit/output/client/_app/immutable/chunks/BvajGCUy.js                     0.96 kB │ gzip:   0.49 kB
+.svelte-kit/output/client/_app/immutable/chunks/C46ZqvIl.js                     1.28 kB │ gzip:   0.49 kB
+.svelte-kit/output/client/_app/immutable/chunks/CFPWE9ug.js                     1.29 kB │ gzip:   0.70 kB
+.svelte-kit/output/client/_app/immutable/chunks/CjnFlu4u.js                     1.54 kB │ gzip:   0.60 kB
+.svelte-kit/output/client/_app/immutable/chunks/Dhb-2j9p.js                     1.63 kB │ gzip:   0.78 kB
+.svelte-kit/output/client/_app/immutable/chunks/Cac8vKd7.js                     1.67 kB │ gzip:   0.81 kB
+.svelte-kit/output/client/_app/immutable/chunks/BYAiYHFx.js                     1.69 kB │ gzip:   0.78 kB
+.svelte-kit/output/client/_app/immutable/chunks/DPkNLes8.js                     1.71 kB │ gzip:   0.83 kB
+.svelte-kit/output/client/_app/immutable/chunks/DLk6rpji.js                     1.73 kB │ gzip:   0.63 kB
+.svelte-kit/output/client/_app/immutable/chunks/5jv8CcQD.js                     1.86 kB │ gzip:   0.87 kB
+.svelte-kit/output/client/_app/immutable/chunks/D28Ae8-K.js                     1.98 kB │ gzip:   0.89 kB
+.svelte-kit/output/client/_app/immutable/chunks/CGrWLZr3.js                     2.05 kB │ gzip:   0.92 kB
+.svelte-kit/output/client/_app/immutable/chunks/LQdxqEYJ.js                     2.12 kB │ gzip:   0.99 kB
+.svelte-kit/output/client/_app/immutable/chunks/B1aVtJYH.js                     2.26 kB │ gzip:   1.02 kB
+.svelte-kit/output/client/_app/immutable/chunks/DhLSQbgl.js                     2.28 kB │ gzip:   0.93 kB
+.svelte-kit/output/client/_app/immutable/chunks/Canl7DCW.js                     2.30 kB │ gzip:   0.88 kB
+.svelte-kit/output/client/_app/immutable/chunks/Corcdgou.js                     2.40 kB │ gzip:   0.93 kB
+.svelte-kit/output/client/_app/immutable/chunks/KEyrF7De.js                     2.41 kB │ gzip:   1.12 kB
+.svelte-kit/output/client/_app/immutable/chunks/CdjsipkG.js                     2.44 kB │ gzip:   1.03 kB
+.svelte-kit/output/client/_app/immutable/chunks/O9LJTZXk.js                     2.52 kB │ gzip:   1.11 kB
+.svelte-kit/output/client/_app/immutable/chunks/RYC1BQQz.js                     2.62 kB │ gzip:   1.17 kB
+.svelte-kit/output/client/_app/immutable/chunks/DPitgjJI.js                     2.68 kB │ gzip:   1.28 kB
+.svelte-kit/output/client/_app/immutable/chunks/gaqVKiJ_.js                     2.80 kB │ gzip:   1.32 kB
+.svelte-kit/output/client/_app/immutable/chunks/fd1GTHhf.js                     2.84 kB │ gzip:   1.28 kB
+.svelte-kit/output/client/_app/immutable/chunks/BhNW15KB.js                     2.86 kB │ gzip:   1.35 kB
+.svelte-kit/output/client/_app/immutable/chunks/CsDZo4DB.js                     2.93 kB │ gzip:   1.16 kB
+.svelte-kit/output/client/_app/immutable/chunks/BIFz-_sK.js                     2.99 kB │ gzip:   1.24 kB
+.svelte-kit/output/client/_app/immutable/chunks/SYsfObOQ.js                     3.08 kB │ gzip:   1.36 kB
+.svelte-kit/output/client/_app/immutable/chunks/Bu_VLpJB.js                     3.13 kB │ gzip:   1.34 kB
+.svelte-kit/output/client/_app/immutable/chunks/D84EuPTj.js                     3.25 kB │ gzip:   1.40 kB
+.svelte-kit/output/client/_app/immutable/chunks/qQ0MG-9I.js                     3.30 kB │ gzip:   1.44 kB
+.svelte-kit/output/client/_app/immutable/chunks/CHOsPHWR.js                     3.42 kB │ gzip:   1.44 kB
+.svelte-kit/output/client/_app/immutable/chunks/PloMZuKG.js                     3.43 kB │ gzip:   1.33 kB
+.svelte-kit/output/client/_app/immutable/chunks/B7EJu28W.js                     3.45 kB │ gzip:   1.26 kB
+.svelte-kit/output/client/_app/immutable/chunks/DxDQ3s82.js                     3.45 kB │ gzip:   1.45 kB
+.svelte-kit/output/client/_app/immutable/chunks/MGt41PK-.js                     3.48 kB │ gzip:   1.54 kB
+.svelte-kit/output/client/_app/immutable/chunks/B811l8j2.js                     3.65 kB │ gzip:   1.35 kB
+.svelte-kit/output/client/_app/immutable/chunks/CghPJEOS.js                     3.75 kB │ gzip:   1.33 kB
+.svelte-kit/output/client/_app/immutable/chunks/GGFNNJHn.js                     3.76 kB │ gzip:   1.38 kB
+.svelte-kit/output/client/_app/immutable/chunks/DnsZk_dE.js                     3.81 kB │ gzip:   1.73 kB
+.svelte-kit/output/client/_app/immutable/chunks/BaBW-Fn1.js                     3.83 kB │ gzip:   1.61 kB
+.svelte-kit/output/client/_app/immutable/chunks/DYu83w4z.js                     3.88 kB │ gzip:   1.48 kB
+.svelte-kit/output/client/_app/immutable/chunks/DMDD0SHb.js                     4.02 kB │ gzip:   1.79 kB
+.svelte-kit/output/client/_app/immutable/chunks/D8lhlL1r.js                     4.11 kB │ gzip:   1.61 kB
+.svelte-kit/output/client/_app/immutable/entry/app.DJ07B_fQ.js                  4.12 kB │ gzip:   1.88 kB
+.svelte-kit/output/client/_app/immutable/chunks/DQU6DXDx.js                     4.37 kB │ gzip:   1.34 kB
+.svelte-kit/output/client/_app/immutable/chunks/BoL64M5l.js                     4.38 kB │ gzip:   1.69 kB
+.svelte-kit/output/client/_app/immutable/chunks/kFxLfcjb.js                     4.69 kB │ gzip:   1.61 kB
+.svelte-kit/output/client/_app/immutable/chunks/BBCbYFI2.js                     4.73 kB │ gzip:   1.40 kB
+.svelte-kit/output/client/_app/immutable/chunks/CYqgjx_P.js                     4.77 kB │ gzip:   1.90 kB
+.svelte-kit/output/client/_app/immutable/chunks/D7IUmUK8.js                     4.77 kB │ gzip:   2.00 kB
+.svelte-kit/output/client/_app/immutable/chunks/B5GPfPzP.js                     4.88 kB │ gzip:   1.36 kB
+.svelte-kit/output/client/_app/immutable/chunks/BO6FnfXk.js                     5.20 kB │ gzip:   2.19 kB
+.svelte-kit/output/client/_app/immutable/chunks/CJkBZym2.js                     5.27 kB │ gzip:   2.13 kB
+.svelte-kit/output/client/_app/immutable/chunks/BaF-TIV3.js                     5.34 kB │ gzip:   2.10 kB
+.svelte-kit/output/client/_app/immutable/chunks/BwAE3J76.js                     5.65 kB │ gzip:   2.02 kB
+.svelte-kit/output/client/_app/immutable/chunks/BfRIq3la.js                     5.83 kB │ gzip:   1.48 kB
+.svelte-kit/output/client/_app/immutable/chunks/o7sJc6cW.js                     5.98 kB │ gzip:   2.63 kB
+.svelte-kit/output/client/_app/immutable/chunks/CTwUZ5N7.js                     6.27 kB │ gzip:   1.71 kB
+.svelte-kit/output/client/_app/immutable/chunks/BSFeRHmN.js                     6.64 kB │ gzip:   1.57 kB
+.svelte-kit/output/client/_app/immutable/chunks/DMcEznzw.js                     6.94 kB │ gzip:   3.10 kB
+.svelte-kit/output/client/_app/immutable/chunks/DQXNmw_w.js                     7.01 kB │ gzip:   2.62 kB
+.svelte-kit/output/client/_app/immutable/chunks/Bqvq8jcR.js                     7.18 kB │ gzip:   2.06 kB
+.svelte-kit/output/client/_app/immutable/chunks/B_1kOXbF.js                     7.21 kB │ gzip:   2.72 kB
+.svelte-kit/output/client/_app/immutable/chunks/C7iG7M4S.js                     7.26 kB │ gzip:   2.21 kB
+.svelte-kit/output/client/_app/immutable/chunks/DgMryOEJ.js                     7.46 kB │ gzip:   2.72 kB
+
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+.svelte-kit/output/client/_app/immutable/chunks/CQpG440k.js                     7.72 kB │ gzip:   2.40 kB
+.svelte-kit/output/client/_app/immutable/chunks/120yhfDK.js                     7.89 kB │ gzip:   2.04 kB
+.svelte-kit/output/client/_app/immutable/chunks/DlYyT36c.js                     8.12 kB │ gzip:   3.10 kB
+.svelte-kit/output/client/_app/immutable/chunks/CYWGW-b1.js                     8.36 kB │ gzip:   2.54 kB
+.svelte-kit/output/client/_app/immutable/chunks/BPutH2SH.js                     8.64 kB │ gzip:   2.25 kB
+.svelte-kit/output/client/_app/immutable/chunks/IBS6jZEB.js                     8.91 kB │ gzip:   2.04 kB
+.svelte-kit/output/client/_app/immutable/chunks/D9WOWImG.js                     9.50 kB │ gzip:   3.57 kB
+.svelte-kit/output/client/_app/immutable/chunks/BRjLKONM.js                    10.12 kB │ gzip:   2.50 kB
+.svelte-kit/output/client/_app/immutable/chunks/BdTr02Mf.js                    10.16 kB │ gzip:   3.79 kB
+.svelte-kit/output/client/_app/immutable/chunks/BHd6q0vd.js                    11.13 kB │ gzip:   4.01 kB
+.svelte-kit/output/client/_app/immutable/chunks/CBifECDb.js                    11.66 kB │ gzip:   4.30 kB
+.svelte-kit/output/client/_app/immutable/chunks/Dy0bjov7.js                    13.32 kB │ gzip:   4.46 kB
+.svelte-kit/output/client/_app/immutable/chunks/CRCWOmpq.js                    14.02 kB │ gzip:   5.27 kB
+.svelte-kit/output/client/_app/immutable/chunks/CpSGxQka.js                    15.96 kB │ gzip:   4.11 kB
+.svelte-kit/output/client/_app/immutable/chunks/DdJtto1Z.js                    16.80 kB │ gzip:   4.81 kB
+.svelte-kit/output/client/_app/immutable/chunks/CME5AdoB.js                    18.46 kB │ gzip:   4.41 kB
+.svelte-kit/output/client/_app/immutable/chunks/Cninf1Rk.js                    22.41 kB │ gzip:   6.28 kB
+.svelte-kit/output/client/_app/immutable/chunks/A-62r_Vr.js                    22.47 kB │ gzip:   8.77 kB
+.svelte-kit/output/client/_app/immutable/chunks/CFU_2Oe_.js                    26.13 kB │ gzip:  10.28 kB
+.svelte-kit/output/client/_app/immutable/chunks/igqRZroh.js                    33.04 kB │ gzip:   8.66 kB
+.svelte-kit/output/client/_app/immutable/chunks/_oeIKqhN.js                    33.59 kB │ gzip:   8.78 kB
+.svelte-kit/output/client/_app/immutable/chunks/DIBN6PpI.js                    39.03 kB │ gzip:  10.81 kB
+.svelte-kit/output/client/_app/immutable/nodes/2.SN8vnaS1.js                   52.44 kB │ gzip:  18.08 kB
+.svelte-kit/output/client/_app/immutable/chunks/Ddj5KS16.js                 3,094.48 kB │ gzip: 797.48 kB
+✓ built in 21.61s
+.svelte-kit/output/server/.vite/manifest.json                           2.94 kB
+.svelte-kit/output/server/_app/immutable/assets/_page.C0N4mvgY.css      0.06 kB
+.svelte-kit/output/server/_app/immutable/assets/_layout.DMyu3PD8.css  122.37 kB
+.svelte-kit/output/server/entries/pages/_layout.js                      0.07 kB
+.svelte-kit/output/server/entries/pages/_layout.svelte.js               0.23 kB
+.svelte-kit/output/server/internal.js                                   0.33 kB
+.svelte-kit/output/server/chunks/equality.js                            0.33 kB
+.svelte-kit/output/server/chunks/environment.js                         0.66 kB
+.svelte-kit/output/server/chunks/utils.js                               1.15 kB
+.svelte-kit/output/server/entries/fallbacks/error.svelte.js             1.32 kB
+.svelte-kit/output/server/chunks/context.js                             2.80 kB
+.svelte-kit/output/server/chunks/exports.js                             6.97 kB
+.svelte-kit/output/server/chunks/shared.js                             17.71 kB
+.svelte-kit/output/server/remote-entry.js                              18.83 kB
+.svelte-kit/output/server/chunks/index.js                              29.73 kB
+.svelte-kit/output/server/entries/pages/_page.svelte.js                72.57 kB
+.svelte-kit/output/server/chunks/internal.js                           75.42 kB
+.svelte-kit/output/server/index.js                                    126.61 kB
+✓ built in 29.64s
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-static
+Overwriting build\index.html with fallback page. Consider using a different name for the fallback.
+  Wrote site to "build"
+  ✔ done
+[INFO] 
+[INFO] --- antrun:3.1.0:run (default) @ jira-log-viewer-svelte5 ---
+[INFO] Executing tasks
+[INFO]      [copy] Copying 1 file to D:\DevHome\projects\jira-log-viewer\plugin\src\main\resources\js
+[INFO]      [copy] Copying 1 file to D:\DevHome\projects\jira-log-viewer\plugin\src\main\resources\css
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ jira-log-viewer-svelte5 ---
+[WARNING] Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] Copying 4 resources from dist to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ jira-log-viewer-svelte5 ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] -----------< com.atsoft.jira.plugin:jira-log-viewer-plugin >------------
+[INFO] Building Jira Log Viewer Plugin 1.0.0-SNAPSHOT                     [3/3]
+[INFO]   from plugin\pom.xml
+[INFO] --------------------------[ atlassian-plugin ]--------------------------
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-3: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-3 requires Maven version 4.0.0-rc-4
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-compiler-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-compiler-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-compiler-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-compiler-plugin:3.14.1
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.4.0
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 requires Maven version 4.0.0-rc-2
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1: The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 requires Maven version 4.0.0-beta-3
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[INFO] 
+[INFO] --- jira:9.11.1:compress-resources (default-compress-resources) @ jira-log-viewer-plugin ---
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ jira-log-viewer-plugin ---
+[INFO] Copying 9 resources from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- jira:9.11.1:filter-plugin-descriptor (default-filter-plugin-descriptor) @ jira-log-viewer-plugin ---
+[INFO] Copying 1 resource from src\main\resources to target\10.7.4\classes
+[INFO] 
+[INFO] --- kotlin:2.2.20:compile (compile) @ jira-log-viewer-plugin ---
+[WARNING] ATTENTION!
+This build uses unsafe internal compiler arguments:
+
+-XXLanguage:+NestedTypeAliases
+
+This mode is not recommended for production use,
+as no stability/compatibility guarantees are given on
+compiler or generated code. Use it at your own risk!
+
+[WARNING] Following manually enabled features will force generation of pre-release binaries: NestedTypeAliases
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (compile) @ jira-log-viewer-plugin ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Jira Log Viewer 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] Jira Log Viewer .................................... SUCCESS [  0.002 s]
+[INFO] Jira Log Viewer Svelte5 ............................ SUCCESS [ 32.171 s]
+[INFO] Jira Log Viewer Plugin ............................. SUCCESS [  3.946 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  37.523 s
+[INFO] Finished at: 2026-01-28T05:24:20+09:00
+[INFO] ------------------------------------------------------------------------
