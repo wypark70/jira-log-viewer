@@ -43,10 +43,11 @@
 
 {#if searchStore.isFileSearchOpen}
   <!-- 배경 오버레이 -->
-  <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-40"
+  <button
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 border-none cursor-default w-full h-full block"
     onclick={() => searchStore.closeFileSearch()}
-  ></div>
+    aria-label="Close search"
+  ></button>
 
   <!-- 검색 패널 -->
   <div

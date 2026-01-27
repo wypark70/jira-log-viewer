@@ -147,12 +147,6 @@
             <version>5.3.30</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.atlassian.sal</groupId>
-            <artifactId>sal-api</artifactId>
-            <version>${jira.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- WIRED TEST RUNNER DEPENDENCIES -->
         <dependency>
@@ -255,6 +249,19 @@
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
             <version>2.15.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.15.2</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- JAX-RS implementation for unit tests -->
+        <dependency>
+            <groupId>org.glassfish.jersey.core</groupId>
+            <artifactId>jersey-common</artifactId>
+            <version>3.1.5</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -368,6 +375,7 @@
                     <jvmTarget>${maven.compiler.release}</jvmTarget>
                     <args>
                         <arg>-XXLanguage:+NestedTypeAliases</arg>
+                        <arg>-Xannotation-default-target=param-property</arg>
                     </args>
                 </configuration>
             </plugin>

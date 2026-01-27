@@ -25,10 +25,11 @@
 
 {#if settingsStore.isPanelOpen}
   <!-- 배경 오버레이 -->
-  <div
-    class="fixed inset-0 bg-black bg-opacity-50 z-40"
+  <button
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 border-none cursor-default w-full h-full block"
     onclick={() => settingsStore.closePanel()}
-  ></div>
+    aria-label="Close settings"
+  ></button>
 
   <!-- 설정 패널 -->
   <div
@@ -60,10 +61,11 @@
 
         <!-- 폰트 크기 -->
         <div class="mb-4">
-          <label class="block text-sm mb-2">
+          <label class="block text-sm mb-2" for="font-size">
             폰트 크기: {settingsStore.fontSize}px
           </label>
           <input
+            id="font-size"
             type="range"
             min="10"
             max="24"
@@ -80,8 +82,10 @@
 
         <!-- 폰트 패밀리 -->
         <div class="mb-4">
-          <label class="block text-sm mb-2">폰트 패밀리</label>
+          <label class="block text-sm mb-2" for="font-family">폰트 패밀리</label
+          >
           <select
+            id="font-family"
             value={settingsStore.fontFamily}
             onchange={(e) => settingsStore.setFontFamily(e.currentTarget.value)}
             class="w-full bg-vscode-bg border border-vscode-border rounded px-3 py-2 text-vscode-text"
@@ -94,8 +98,9 @@
 
         <!-- 줄바꿈 -->
         <div class="mb-4">
-          <label class="block text-sm mb-2">줄바꿈</label>
+          <label class="block text-sm mb-2" for="word-wrap">줄바꿈</label>
           <select
+            id="word-wrap"
             value={settingsStore.wordWrap}
             onchange={(e) => settingsStore.setWordWrap(e.currentTarget.value)}
             class="w-full bg-vscode-bg border border-vscode-border rounded px-3 py-2 text-vscode-text"
@@ -138,8 +143,11 @@
         <h3 class="text-sm font-semibold text-vscode-text-muted mb-4">테마</h3>
 
         <div class="mb-4">
-          <label class="block text-sm mb-2">에디터 테마</label>
+          <label class="block text-sm mb-2" for="editor-theme"
+            >에디터 테마</label
+          >
           <select
+            id="editor-theme"
             value={settingsStore.editorTheme}
             onchange={(e) =>
               settingsStore.setEditorTheme(e.currentTarget.value)}

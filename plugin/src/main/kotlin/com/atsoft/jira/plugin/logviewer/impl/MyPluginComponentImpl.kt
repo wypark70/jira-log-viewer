@@ -5,5 +5,5 @@ import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 
 @ExportAsService(MyPluginComponent::class)
 class MyPluginComponentImpl : MyPluginComponent {
-    override val name: String? = null
+    override val name: String? = "myComponent"
 }
