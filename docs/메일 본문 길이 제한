@@ -1,0 +1,139 @@
+지라(Jira) SMTP 알림 메일의 2MB 제한을 해결하기 위해 **1단계로 대용량 인라인 이미지(Base64)를 먼저 축소**하고, 그래도 용량이 초과하면 **2단계로 과거 댓글 및 활동 로그를 하단부터 차례대로 제거(Bottom-up)**하는 최종 통합 코드입니다.
+메일 레이아웃이 깨지지 않도록 Jsoup의 안전한 엘리먼트 조작 방식을 사용했으며, 영문/한글 바이트 크기를 정확히 계산하도록 구현했습니다.
+### 🛠️ 최종 통합 자바 코드
+```java
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class JiraEmailFinalSanitizer {
+    public static void main(String[] args) {
+        // [테스트용 대용량 가상 HTML] 이미지와 긴 댓글이 섞여 있는 구조
+        String jiraHtml = "<html><body><div id='jira-mail-body'>" +
+                "<div class='issue-main'><h2>[PROJECT-123] 결제 모듈 오류 건</h2><p>상단 핵심 본문 내용입니다.</p></div>" +
+                "<table class='action-container'><tr><td><h3>최신 댓글 (유지 대상)</h3><p>이건 최신 댓글입니다.</p></td></tr></table>" +
+                "<table class='action-container'><tr><td><h3>과거 댓글 2 (용량 초과시 삭제 대상)</h3>" +
+                "  <img src='data:image/png;base64," + "A".repeat(400000) + "' />" + // 약 300KB 대용량 이미지
+                "</td></tr></table>" +
+                "<table class='action-container'><tr><td><h3>과거 댓글 1 (용량 초과시 삭제 대상)</h3><p>" + "B".repeat(1500000) + "</p></td></tr></table>" + // 거대한 텍스트 (약 1.5MB)
+                "<table class='activity-stream'><tr><td>상세 변경 이력 로그 영역</td></tr></table>" +
+                "</div></body></html>";
+
+        // 실행 및 결과 확인
+        String processedHtml = sanitizeJiraEmail(jiraHtml);
+    }
+
+    public static String sanitizeJiraEmail(String originalHtml) {
+        Document doc = Jsoup.parse(originalHtml);
+
+        // ⚠️ 메일 서버 및 SMTP 헤더 여유 공간을 고려한 안전 마진 수치 (1.8MB = 1,887,436 Bytes)
+        final long MAX_BYTES = 1887436; 
+        // 대용량 인라인 이미지 기준치 (100KB = Base64 문자열 길이 약 133,000자)
+        final int MAX_IMG_STRING_LENGTH = 133000; 
+
+        System.out.println("1. 원본 메일 용량: " + getByteLength(doc) + " Bytes");
+
+        // -----------------------------------------------------------------
+        // [1단계] 대용량 인라인 이미지 저격 및 축소 (가장 효과가 빠름)
+        // -----------------------------------------------------------------
+        Elements inlineImages = doc.select("img[src^=data:]");
+        for (Element img : inlineImages) {
+            String src = img.attr("src");
+            if (src.length() > MAX_IMG_STRING_LENGTH) {
+                int estimatedKB = (int) ((src.length() * 0.75) / 1024);
+                
+                // 아웃룩 등에서 레이아웃이 깨지지 않도록 인라인 스타일로 깔끔한 안내 박스 구현
+                String imgNoticeHtml = "<div style='display:inline-block; padding:12px; background-color:#f4f5f7; " +
+                        "border:1px dashed #dfe1e6; color:#5e6c84; font-size:12px; margin:5px 0; border-radius:3px; font-family:sans-serif;'>" +
+                        "🖼️ [본문 삽입 대용량 이미지 생략 (" + estimatedKB + "KB) - Jira 시스템에서 확인하세요]" +
+                        "</div>";
+                
+                // <img> 태그를 안내 텍스트 박스로 안전하게 치환
+                img.replaceWith(Jsoup.parseBodyFragment(imgNoticeHtml).body().child(0));
+            }
+        }
+        
+        System.out.println("2. 이미지 정제 후 용량: " + getByteLength(doc) + " Bytes");
+
+        // -----------------------------------------------------------------
+        // [2단계] 과거 댓글(action-container) 하단부터 순차적 삭제 (Bottom-up)
+        // -----------------------------------------------------------------
+        if (getByteLength(doc) > MAX_BYTES) {
+            Elements comments = doc.select("table.action-container");
+            List<Element> reverseComments = new ArrayList<>(comments);
+            Collections.reverse(reverseComments); // 오래된 하단 댓글부터 잡기 위해 뒤집기
+
+            for (Element comment : reverseComments) {
+                if (getByteLength(doc) <= MAX_BYTES) {
+                    break;
+                }
+                // 테이블 뼈대가 남아서 레이아웃이 깨지지 않도록 테이블 통째로 삭제
+                comment.remove(); 
+            }
+        }
+
+        // -----------------------------------------------------------------
+        // [3단계] 최후의 보루: 활동 로그(activity-stream) 삭제
+        // -----------------------------------------------------------------
+        if (getByteLength(doc) > MAX_BYTES) {
+            Elements activityStreams = doc.select("table.activity-stream");
+            for (Element stream : activityStreams) {
+                if (getByteLength(doc) <= MAX_BYTES) {
+                    break;
+                }
+                stream.remove();
+            }
+        }
+
+        // -----------------------------------------------------------------
+        // [4단계] 용량이 줄어들었는지 검증 및 상단 경고 배너 삽입
+        // -----------------------------------------------------------------
+        long finalBytes = getByteLength(doc);
+        if (finalBytes > MAX_BYTES) {
+            // 모든 조치를 취했는데도 2MB가 넘는 극단적인 경우, 직속 자식을 뒤에서부터 강제 삭제
+            Elements bodyChildren = doc.body().children();
+            List<Element> reverseChildren = new ArrayList<>(bodyChildren);
+            Collections.reverse(reverseChildren);
+            for (Element child : reverseChildren) {
+                if (getByteLength(doc) <= MAX_BYTES) {
+                    break;
+                }
+                child.remove();
+            }
+        }
+
+        // 원본과 비교해서 내용이 누락되었다면 사용자 안내용 상단 빨간 배너 삽입
+        if (getByteLength(doc) < originalHtml.getBytes(StandardCharsets.UTF_8).length) {
+            String warningBanner = "<div style='color:#a51d24; font-weight:bold; padding:12px; " +
+                    "border:1px solid #fbe3e4; background-color:#fdf2f2; margin-bottom:15px; " +
+                    "font-size:13px; border-radius:4px; font-family:sans-serif;'>" +
+                    "⚠️ 본 알림 메일은 시스템 발송 제한 용량(2MB)을 초과하여, 최신 정보 유지를 위해 하단의 과거 댓글 또는 대용량 이미지가 일부 생략되었습니다. " +
+                    "전체 내용은 Jira 시스템에 접속하여 확인해 주세요.</div>";
+            doc.body().prepend(warningBanner);
+        }
+
+        System.out.println("3. 최종 필터링 후 용량: " + getByteLength(doc) + " Bytes");
+        return doc.outerHtml();
+    }
+
+    // HTML 문서의 정확한 UTF-8 바이트 크기를 구하는 헬퍼 메소드
+    private static long getByteLength(Document doc) {
+        return doc.outerHtml().getBytes(StandardCharsets.UTF_8).length;
+    }
+}
+
+```
+### 💡 이 코드의 동작 메커니즘과 장점
+ 1. **디자인 깨짐 방지 (.remove())**
+   * 지라 메일은 중첩 테이블(<table><tr><td>) 덩어리입니다. 텍스트만 자르면 빈 표 껍데기가 남아 메일이 흉측하게 깨집니다. 이 코드는 셀렉터(table.action-container)를 이용해 **댓글 단위로 표 전체를 도려내므로** 레이아웃이 완벽하게 유지됩니다.
+ 2. **효율적인 단계별 다이어트**
+   * **1단계(이미지)**에서 본문 삽입형 거대 스크린샷만 골라내어 가벼운 대안 텍스트 박스로 바꿉니다. 이것만으로도 대부분 2MB 이하로 뚝 떨어집니다.
+   * 그래도 용량이 넘치면 **2단계(댓글 역순)**로 진입하여 메일 가장 하단에 있는 '가장 오래된 과거 댓글'부터 하나씩 지워나가며 실시간으로 용량을 체크합니다.
+ 3. **유저 친화적인 경고 배너**
+   * 이미지가 생략된 자리에는 [대용량 첨부 이미지 생략 (300KB)]라는 회색 안내 박스가 남고, 메일 내용이 하나라도 잘렸다면 메일 최상단에 빨간색 안내 배너가 붙어 사용자가 "지라 시스템에 들어가서 확인해야겠구나"라고 즉시 인지할 수 있습니다.
